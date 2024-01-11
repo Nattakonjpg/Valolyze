@@ -25,10 +25,21 @@
             background-repeat: repeat;
             background-size: auto;
             background-position: center;
-            filter: blur(14px);
-            -webkit-filter: blur(14px);
+            filter: blur(6px);
+            -webkit-filter: blur(6px);
             z-index: -1;
-            x
+            background-origin: content-box;
+            /* Add this line */
+            background-clip: content-box;
+            /* Add this line */
+        }
+
+        /* Adjust the position of title */
+        title {
+            margin-top: 50px;
+            /* You can adjust the value based on your preference */
+            display: block;
+            /* Ensure that the title is treated as a block element */
         }
     </style>
     <link rel="icon" type="image/png" href="./LegalDoc/Icon.jpg">
