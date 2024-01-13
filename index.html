@@ -11,25 +11,55 @@
     <title>Valolyze Game Analyse</title>
     <style>
         body {
-            background-image: url("https://assets.airtrfx.com/media-em/h2/h2-default-image.jpg");
-            background-repeat: repeat-x;
-            background-size: cover;
+            margin: 0;
+            overflow: auto;
+            background-color: black;
+            /* Set the background color to black */
+            color: #ffffff;
+            /* Set text color to white */
+            font-family: 'Menlo', monospace;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("./LegalDoc/Background.jpg");
+            background-repeat: repeat;
+            background-size: auto;
+            background-position: center;
+            filter: blur(6px);
+            -webkit-filter: blur(6px);
+            z-index: -1;
+            background-origin: content-box;
+            /* Add this line */
+            background-clip: content-box;
+            /* Add this line */
         }
     </style>
-    <link rel="icon" type="image/png" href="./LegalDoc/LegalBERTth_new_2.png">
+    <link rel="icon" type="image/png" href="./LegalDoc/Icon.jpg">
     <link rel="stylesheet" href="./LegalDoc/font-awesome.min.css">
     <link rel="stylesheet" href="./LegalDoc/codemirror.min.css">
     <link rel="stylesheet" href="./LegalDoc/app.css">
     <link rel="stylesheet" href="./LegalDoc/bootstrap.min.css">
 </head>
 
+<!-- 1.เปลี่ยน background เป็น valorant theme ให้รูป repeat จะได้เต็มหน้าเว็บ position ตรงกลาง
+     2.เปลี่ยน logo เว็บเป็น logo valorant
+-->
+
 <body>
     <div class="container" id="main">
         <div class="row">
-            <h1 class="col-md-12 text-center" style="font-size: 46px;">
+            <h1 class="col-md-12 text-center" style="font-size: 46px; color:#FFFFFF">
+                <img src="LegalDoc/Icon.jpg" alt="Valorant Logo" height="50px" style="margin-bottom: 10px;">
+                <!--ฟ้อน 46 ,สีขาว, font menlo-->
                 <strong>
-                    <br>
-                    This is webpage title "Valolyze Game Analyse" </strong><br>
+                    Valolyze Game Analyse
+                </strong><br>
             </h1>
 
             <!-- <center><img src="\\wsl$\Ubuntu-20.04\root\Web\LegalDoc_NLP\LegalDoc\S__6717445.jpg" height="300px"><br></div></center> -->
@@ -37,20 +67,26 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <br>
-                <ul class="list-inline">
-                    <li>
-                        <a href="https://github.com/Wanita-8943">
-                            <font style="color:#6c2c10"><strong>Wanita Somdej</strong></font>
+                <ul class="list-inline" style="font-size: 24px; margin-top: 12px;">
+                    <li style="margin-right: 20px;">
+                        <a href="https://github.com/Nattakonjpg"> <!--ฟ้อน 24 ,สีทอง, font menlo-->
+                            <font style="color:#FFA500">
+                                <strong>Nattakonjpg</strong>
+                            </font>
                         </a>
                     </li>
-                    <li>
-                        <a href="https://github.com/Athitiya00">
-                            <font style="color:#6c2c10"><strong> Athitiya Thamavongsa </strong></font>
+                    <li style="margin-right: 20px;">
+                        <a href="https://github.com/TungSoPon">
+                            <font style="color:#FFA500">
+                                <strong>TungSoPon</strong>
+                            </font>
                         </a>
                     </li>
                     <li>
                         <a href="https://vi-lab-th.github.io/">
-                            <font style="color:#6c2c10"> <strong> Thanapong Intharah </strong></font>
+                            <font style="color:#FFA500">
+                                <strong>Thanapong Intharah</strong>
+                            </font>
                         </a>
                     </li>
                 </ul>
@@ -69,13 +105,13 @@
                     <li>
                         <a href="https://youtu.be/zJeGVH_gyI8;feature=youtu.be">
                             <!-- <a href="./LegalDoc/web.mp4" type="video/mp4">  -->
-                            <img src="./LegalDoc/youtube_icon_dark.png" height="120px"><br>
+                            <img src="./LegalDoc/Icon_youtube.png" height="120px"><br>
                             <h4><strong>Presentation</strong></h4>
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/Wanita-8943/Main_Project">
-                            <img src="./LegalDoc/Github.gif" height="140px"><br>
+                        <a href="https://github.com/Nattakonjpg/Project-Valolyze">
+                            <img src="./LegalDoc/Icon_github.png" height="140px"><br>
                             <h4><strong>Code</strong></h4>
                         </a>
                     </li>
@@ -85,17 +121,17 @@
 
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2" style="color: #FFFFFF;">
                 <h3><strong>Example Results: WebApp(Prototype)</strong></h3>
                 <hr>
-                <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                <video id="v0" width="100%" autoplay loop muted controls>
                     <source src="./LegalDoc/WebV2.mp4" type="video/mp4">
                 </video><br>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2" style="color: #FFFFFF;">
                 <br>
                 <h3><strong>Input-output</strong></h3>
                 <hr>
@@ -105,7 +141,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2" style="color: #FFFFFF;">
 
                 <h3><strong>Abstract</strong></h3>
                 <hr>
@@ -113,7 +149,7 @@
                 <img src="./LegalDoc/Storyboard.png" class="img-responsive" alt="overview"><br>
 
                 <br>
-                <p class="text-justify">
+                <p class="text-justify" style=" color: #FFFFFF;">
                     <strong>
                            Estimating dental age in children and adolescents is important for diagnostic planning.
                         Dental and orthodontic treatment, especially in persons of biological age. And physiological
@@ -143,7 +179,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2" style="color: #FFFFFF;">
                 <h3><strong>Project poster</strong></h3>
                 <hr>
                 <div class="text-center">
@@ -194,7 +230,7 @@
             <div class="col-md-8 col-md-offset-2"></div>
         </div> -->
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2" style="color: #FFFFFF;">
                 <br>
                 The website template was borrowed from
                 <a href="http://mgharbi.com/">Michaël Gharbi</a>.
