@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)https://peckkie.github.io/Concealed_Gun_webpage/ -->
 <html>
 
 <head lang="en">
@@ -41,6 +40,28 @@
             color: red;
             /* You can change the color of the banner text */
         }
+
+        .button-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+        }
+
+        .button-container .banner-button {
+            display: block;
+            width: 200px;
+            height: 50px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin: 0 10px;
+        }
     </style>
     <link rel="icon" type="image/png" href="./LegalDoc/Icon.jpg">
     <link rel="stylesheet" href="./LegalDoc/font-awesome.min.css">
@@ -48,21 +69,14 @@
     <link rel="stylesheet" href="./LegalDoc/app.css">
     <link rel="stylesheet" href="./LegalDoc/bootstrap.min.css">
 </head>
-
-<body>
-    <h1 class="banner">Banner Text</h1>
-    <button
-        style="background-color: rgba(153, 2, 2, 0.938); color: white; padding: 5px 10px; margin-left: 10px;">Valolyze
-        Game Analyse</button>
-</body>
-
-</html>
-
 <!-- 1.เปลี่ยน background เป็น valorant theme ให้รูป repeat จะได้เต็มหน้าเว็บ position ตรงกลาง
      2.เปลี่ยน logo เว็บเป็น logo valorant
 -->
 
 <body>
+    <div class="banner">
+        <p>Valolyze Game Analyse</p>
+    </div>
     <div class="container" id="main">
         <div class="row">
             <h1 class="col-md-12 text-center" style="font-size: 42px; color:#FFFFFF">
