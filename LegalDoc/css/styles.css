@@ -79,8 +79,6 @@ nav {
     /* Ensure the navigation is fixed */
     top: 0;
     /* Position it at the top of the viewport */
-    z-index: 1000;
-    /* Ensure it appears above other content */
 }
 
 #game:target,
