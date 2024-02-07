@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    padding: 2rem;
 }
 
 .tabs {
@@ -13,7 +14,7 @@ body {
 .tabs li {
     border: 1px solid #ccc;
     border-right: none;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 0.5rem;
     background-color: #f2f2f2;
 }
 
@@ -23,10 +24,11 @@ body {
 
 .tabs a {
     display: block;
-    padding: 0.5rem;
+    padding: 1rem 1.5rem;
     text-align: center;
     text-decoration: none;
     color: #333;
+    font-size: 1.2rem;
 }
 
 .tab-content {
@@ -40,32 +42,28 @@ body {
     margin-top: 0;
 }
 
-/* Define a CSS class for the <h1> heading in the header section */
 .header-h1 {
     font-size: 6rem;
     font-weight: bold;
     color: #000000;
     margin: 0;
-    /* Remove the top and bottom margin */
     padding: 0;
-    /* Remove the left and right padding */
     font-family: 'Menlo', monospace;
 }
 
 .header-h2 {
-
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .upload-box {
     font-size: 2rem;
     font-weight: bold;
     color: #ffff;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 nav {
@@ -76,9 +74,7 @@ nav {
     align-items: center;
     width: 100%;
     position: fixed;
-    /* Ensure the navigation is fixed */
     top: 0;
-    /* Position it at the top of the viewport */
 }
 
 #game:target,
