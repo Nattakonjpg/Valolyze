@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Valolyze Game Analyse</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: auto;
+            background-color: black;
+            color: #ffffff;
+            font-family: 'Menlo', monospace;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("./LegalDoc/Background_1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-origin: content-box;
+            background-clip: content-box;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 72px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 span {
+            color: #ffc107;
+        }
+
+        .square-cover {
+            width: 100%;
+            padding-bottom: 100%;
+            background-image: url("./LegalDoc/valorant-background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin-top: 50px;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="./LegalDoc/Icon.jpg">
+    <link rel="stylesheet" href="./LegalDoc/font-awesome.min.css">
+    <link rel="stylesheet" href="./LegalDoc/codemirror.min.css">
+    <link rel="stylesheet" href="./LegalDoc/app.css">
+    <link rel="stylesheet" href="./LegalDoc/bootstrap.min.css">
+</head>
+
+<!-- 1.เปลี่ยน background เป็น valorant theme ให้รูป repeat จะได้เต็มหน้าเว็บ position ตรงกลาง
+     2.เปลี่ยน logo เว็บเป็น logo valorant
+-->
+
+<body>
+    <div class="container-fluid">
+        <!-- Valorant Logo -->
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Game Title -->
+                <div class="col-md-12" style="margin-top: 24px;">
+                    <h1 style="font-size: 72px; color: #ffc107">
+                        <span>Valolyze</span>
+                    </h1>
+
+                    <h1 style="font-size: 36px; color: #ffffff; margin-top: 6px;">
+                        <span>Game Analyse</span>
+                    </h1>
+                </div>
+                <!-- Cover Text -->
+                <div class="square-cover col-md-12 text-center">
+                    <h1 style="font-size: 36px; color: #ffffff">Project Report here</h1>
+                    <br>
+                    <h1 style="font-size: 36px; color: #ffffff">Presentation here</h1>
+                    <br>
+                    <h1 style="font-size: 36px; color: #ffffff">Github here</h1>
+                </div>
+            </div>
+            <!-- Main Game Title -->
+            <div class="row">
+                <h1 class="col-md-12 text-center" style="font-size: 42px; color:#FFFFFF">
+                    <br>
+                    <strong>
+                        Valolyze Game Analyse
+                    </strong><br>
+                </h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <br>
+                    <ul class="list-inline" style="font-size: 24px; margin-top: 12px;">
+                        <li style="margin-right: 20px;">
+                            <a href="https://github.com/Nattakonjpg"> <!--ฟ้อน 24 ,สีทอง, font menlo-->
+                                <font style="color:#FFA500">
+                                    <strong>Nattakonjpg</strong>
+                                </font>
+                            </a>
+                        </li>
+                        <li style="margin-right: 20px;">
+                            <a href="https://github.com/TungSoPon">
+                                <font style="color:#FFA500">
+                                    <strong>TungSoPon</strong>
+                                </font>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://vi-lab-th.github.io/">
+                                <font style="color:#FFA500">
+                                    <strong>AJ Thanapong Intharah</strong>
+                                </font>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a
+                                href="https://drive.google.com/file/d/1GEDE-1T5-gw9zaiYlCevSye06Ok4axdv/view?usp=sharing">
+                                <img src="./LegalDoc/Paper_Page.png" height="120px"><br>
+                                <h4><strong>Project Report</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/zJeGVH_gyI8;feature=youtu.be">
+                                <!-- <a href="./LegalDoc/web.mp4" type="video/mp4">  -->
+                                <img src="./LegalDoc/Icon_youtube.png" height="120px"><br>
+                                <h4><strong>Presentation</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Nattakonjpg/Project-Valolyze">
+                                <img src="./LegalDoc/Icon_github.png" height="140px"><br>
+                                <h4><strong>Github</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2" style="color: #FFFFFF;">
+                    <h3><strong>Example Results: WebApp(Prototype)</strong></h3>
+                    <hr>
+                    <video id="v0" width="100%" autoplay loop muted controls>
+                        <source src="./LegalDoc/WebV2.mp4" type="video/mp4">
+                    </video><br>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2" style="color: #FFFFFF;">
+                    <br>
+                    <h3 style="font-size: 42px;"">
+                        Input-output
+                    </h3>
+                    <hr>
+                    <img src=" ./LegalDoc/Input_output.png" class="img-responsive" alt="overview">
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2" style="color: #FFFFFF;">
+
+                    <h3 style="font-size: 42px;">
+                        Abstract
+                    </h3>
+                    <hr>
+
+                    <img src="./LegalDoc/Workflow.png" class="img-responsive" alt="overview"><br>
+
+                    <br>
+                    <p class="text-justify" style=" color: #FFFFFF;">
+                        <strong>
+                            &emsp;&emsp;ในปัจจุบันเกมส์ออนไลน์กำลังเป็นที่นิยมอย่างต่อเนื่อง
+                            โดยเป็นผลมาจากการเข้าถึงง่ายของอุปกรณ์คอมพิวเตอร์และการเชื่อมต่ออินเทอร์เน็ตที่สะดวก
+                            มีประเภทเกมส์ออนไลน์หลากหลายรูปแบบ
+                            เช่น เกมส์ยิงปืนมัลติเพลเยอร์ (Multiplayer First-Person Shooter) เช่น Counter-Strike: Global
+                            Offensive,
+                            Valorant การแข่งขันกันกับผู้เล่นทั่วโลกในการแข่งขันระดับมืออาชีพจะเรียกว่า วงการ E-sports
+                            หรือ Electronic
+                            Sports ที่ผู้เล่นมีความสามารถและความเชี่ยวชาญในการเล่นเกมเพื่อการแข่งขันในระดับสูง
+                            การเติบโตของวงการ
+                            E-sports เติบโตอย่างก้าวกระโดดในวงการกีฬาและสังคมทั่วโลก ส่งผลให้การแข่งขันในระดับมืออาชีพ
+                            ได้รับการ
+                            สนับสนุนและลงทุนจากบริษัทใหญ่ และมีความสนใจจากผู้เล่นและผู้ชมทั่วโลก
+                            โดยสิ่งที่ทำให้ทีมของผู้เล่นมีข้อ
+                            ได้เปรียบในการแข่งขันคือข้อมูลเกี่ยวกับการเล่นเกมส์ของผู้เล่น
+                            ที่เป็นข้อมูลที่ได้ผ่านมาจากการวิเคราะห์จากผู้เล่น
+                            และผู้เชี่ยวชาญ จะเป็นตัวแปรสำคัญที่ช่วยฝึกซ้อมทีมมีโอกาสชนะมากกว่าทีมคู่แข่ง
+                            <br>
+                            &emsp;&emsp;ในปัจจุบันเกมส์ส่วนใหญ่ที่วิเคราะห์เช่น CSGO หรือ DOTA2 จะมี Replay file และ log
+                            fileที่จะบอกข้อมูลเกมส์ตั้งแต่ต้นจนจบให้ดาวร์โหลดอย่างเป็นสาธารณะแต่ในเกมส์ที่ผู้วิจัยจะนำมาวิเคราะห์คือเกมส์
+                            Valorant ที่ไม่มี Replay file หรือ log
+                            fileที่เป็นสาธารณะให้ดาวร์โหลดโดยการวิเคราะห์ต้องวิเคราะห์
+                            จากวิดิโอบันทึกการเล่นทำให้ใช้เวลานานหรือวิเคราะห์ได้ไม่เต็มประสิทธิภาพ
+                            <br>
+                            &emsp;&emsp;ผู้วิจัยจึงเกิดความสนใจที่จะสร้างระบบวิเคราะห์เกมส์
+                            Valorantที่จะสามารถแยกการกระทำ(Action)
+                            ออกเป็น ซื้ออุปกรณ์(Buy) ยิง(Shoot) การวางระเบิด(Plant) ใช้สกิล(Use Skill) กู้ระเบิด(Defuse)
+                            เก็บลูกแก้ว(Collect Orb) ตาย(Death)
+                            จากวิดิโอบันทึกการเล่นเนื่องจากเหตุการณ์ที่น่าสนใจมักจะเกิดการกระทำ(Action)
+                            เพื่อที่จะช่วยให้ผู้ใช้สามารถวิเคราะห์การกระทำของผู้เล่นและค้นหาเหตุการณ์ที่ส่งผลต่อการกระทำของผู้เล่นได้อย่างมีประสิทธิภาพ
+                            <br>
+                            &emsp;&emsp;ในส่วนของงานวิจัยนี้ผู้วิจัยจึงพัฒนาตัวแบบโมเดล Machine Learning
+                            สำหรับการแยกการกระทำของผู้เล่น
+                            (Action) จากวิดิโอบันทึกการเล่นเกมส์ Valorant โหมด Competitive
+                            เพื่อลดระยะเวลาและเพิ่มประสิทธิภาพในการวิเคราะห์
+                        </strong>
+
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2" style="color: #FFFFFF;">
+                    <h3><strong>Project poster</strong></h3>
+                    <hr>
+                    <div class="text-center">
+                        <div style="position: relative">
+                            <img src="./LegalDoc/pt1.png" height="1000px"><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Presentation</h3>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <a href="https://youtu.be/Q5_Vgi7oNNY&amp;feature=youtu.be">   
+                            <img src="./LegalDoc/youtube_icon_dark.png" height="200px"><br>
+                            <h4><strong>Presentation Video</strong></h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+            <br>
+            <br>
+            <br>
+            <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h4>รางวัลเหรียญเงินในสาขาวิทยาการคอมพิวเตอร์</h4>
+                 <hr>
+                <div class="text-center">
+                     <div style="position: relative">
+                        <img src="./LegalDoc/Kannika_YRSS2021.png" height="800px"><br>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>  
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2"></div>
+        </div> -->
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2" style="color: #FFFFFF;">
+                    <br>
+                    The website template was borrowed from
+                    <a href="http://mgharbi.com/">Michaël Gharbi</a>.
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+
+</body>
+
+</html>
