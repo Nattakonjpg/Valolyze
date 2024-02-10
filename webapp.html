@@ -7,69 +7,57 @@
     <title>Webapp</title>
     <!-- Link your external CSS file -->
     <link rel="stylesheet" href="styles_webapp.css">
-    <style>
-        /* Center the content horizontally and vertically */
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            /* Stack elements vertically */
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-            /* Add a background color */
-        }
-
-        .uploader {
-            width: 300px;
-            /* Adjust the width of the form */
-            padding: 20px;
-            /* Add some padding */
-            background-color: #fff;
-            /* Add a background color */
-            border-radius: 10px;
-            /* Add some border-radius */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            /* Add a box shadow */
-        }
-
-        h2 {
-            text-align: center;
-            /* Center the heading */
-            margin-bottom: 50px;
-            /* Add margin at the bottom */
-            font-size: 2rem;
-        }
-    </style>
 </head>
 
 <body>
     <h2>File Upload & Video Gameplay Preview</h2>
-
-    <!-- Upload form -->
-    <!-- Upload  -->
     <form id="file-upload-form" class="uploader">
-        <input id="file-upload" type="file" name="fileUpload" accept="video/mp4" />
+        <input id="file-upload" type="file" name="fileUpload" accept="video/mp4,video/avi" />
 
         <label for="file-upload" id="file-drag">
-            <img id="file-image" src="#" alt="Preview" class="hidden">
+            <img id="file-image" class="hidden">
             <div id="start">
                 <i class="fa fa-download" aria-hidden="true"></i>
-                <div>Select a file or drag here</div>
-                <div id="notimage" class="hidden">Please select an Video Gameplay</div>
+                <div
+                    style="font-size: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                    Select a file or drag here
+                </div>
+                <div id="notimage" class="hidden">Please select a Video Gameplay
+                </div>
+                <br>
                 <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
             </div>
             <div id="response" class="hidden">
                 <div id="messages"></div>
                 <progress class="progress" id="file-progress" value="0">
-                    <span>0</span>%
+                    <span>0</span>
                 </progress>
+            </div>
+            <div id="close-container" style="display: none;">
+                <button id="close-btn" class="close-btn">&times;</button>
             </div>
         </label>
     </form>
     <script src="webapp.js"></script>
 </body>
+
+<body>
+    <main class="main-content2">
+        <div class="new-container">
+            <h2>Action</h2>
+            <form class="action-select-form" id="file-upload-form">
+                <div id="start">
+                    <span class="action-select-btn" id="file-upload-btn">
+                        Select Action
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="new-container3">
+            <!-- Content of container3 goes here -->
+        </div>
+    </main>
+</body>
+
 
 </html>
