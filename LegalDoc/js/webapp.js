@@ -1,12 +1,9 @@
-// File Upload
-// 
 function ekUpload() {
     function Init() {
-
         console.log("Upload Initialised");
 
         var fileSelect = document.getElementById('file-upload'),
-            fileDrag = document.getElementById('file-drag'),
+            fileDrag = document.getElementById('file-drag'), // Corrected this line
             submitButton = document.getElementById('submit-button');
 
         fileSelect.addEventListener('change', fileSelectHandler, false);
@@ -19,8 +16,10 @@ function ekUpload() {
             fileDrag.addEventListener('dragleave', fileDragHover, false);
             fileDrag.addEventListener('drop', fileSelectHandler, false);
         }
-    }
 
+        // เมื่ออัปโหลดเสร็จสมบูรณ์ แสดงปุ่มปิด
+        document.getElementById('close-container').style.display = 'block';
+    }
     function fileDragHover(e) {
         var fileDrag = document.getElementById('file-drag');
 
@@ -52,7 +51,7 @@ function ekUpload() {
     }
 
     function parseFile(file) {
-        var videoExtensions = ['mp4', 'webm', 'ogg']; // Define supported video file extensions
+        var videoExtensions = ['mp4', 'AVI', 'webm', 'ogg']; // Define supported video file extensions
         var fileExtension = file.name.split('.').pop().toLowerCase(); // Get the file extension
 
         // Check if the file extension is in the list of supported video extensions
@@ -70,9 +69,9 @@ function ekUpload() {
             videoPreview.setAttribute('autoplay', ''); // Autoplay the video
             videoPreview.setAttribute('loop', ''); // Loop the video
             videoPreview.style.width = '100%'; // Set the width of the video preview
-            videoPreview.style.maxHeight = '200px'; // Set the maximum height of the video preview
+            videoPreview.style.width = '100%'; // Set the width of the video preview
+            // videoPreview.style.maxHeight = '200px'; // Remove this line
             videoPreview.src = URL.createObjectURL(file);
-
             // Replace the placeholder image with the video preview
             var fileImage = document.getElementById('file-image');
             fileImage.parentNode.replaceChild(videoPreview, fileImage);
@@ -103,7 +102,6 @@ function ekUpload() {
     }
 
     function uploadFile(file) {
-
         var xhr = new XMLHttpRequest(),
             fileInput = document.getElementById('class-roster-file'),
             pBar = document.getElementById('file-progress'),
@@ -119,10 +117,14 @@ function ekUpload() {
                 // File received / failed
                 xhr.onreadystatechange = function (e) {
                     if (xhr.readyState == 4) {
-                        // Everything is good!
-
-                        // progress.className = (xhr.status == 200 ? "success" : "failure");
-                        // document.location.reload(true);
+                        // Check if upload was successful
+                        if (xhr.status == 200) {
+                            // Show the close button container only if upload was successful
+                            document.getElementById('close-container').style.display = 'block';
+                        } else {
+                            // Hide the close button container if upload failed
+                            document.getElementById('close-container').style.display = 'none';
+                        }
                     }
                 };
 
@@ -145,5 +147,4 @@ function ekUpload() {
         document.getElementById('file-drag').style.display = 'none';
     }
 }
-
 ekUpload();
