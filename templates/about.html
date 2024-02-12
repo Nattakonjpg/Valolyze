@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- ส่วนนี้คือ พวกแทปด้านบน พวก ABOUT  HOWTO -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>เว็บไซต์ของฉัน</title>
     <style>
+        /* Style for the navigation bar */
+        body {
+            margin: 0;
+            /* Remove default margins */
+            padding: 0;
+            /* Remove default padding */
+        }
+
         /* เพิ่มสไตล์ CSS เพื่อจัดรูปแบบเมนู */
         nav {
+            font-size: 20px;
             background-color: #212121;
             overflow: hidden;
-            display: flex; /* เพิ่ม flexbox */
-            justify-content: space-between; /* จัดวางระยะห่างและลำดับขององค์ประกอบ */
-            align-items: center; /* จัดให้อยู่ตรงกลางตามแนวดิ่ง */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         nav a {
@@ -31,127 +45,172 @@
         nav img {
             width: 20px;
             height: 20px;
-            vertical-align: middle; /* ช่วยให้รูปอยู่ตรงกลางตามสูงของเท็ก */
-            margin-right: 5px; /* เพิ่มระยะห่างด้านขวาของรูป */
+            vertical-align: middle;
+            /* ช่วยให้รูปอยู่ตรงกลางตามสูงของเท็ก */
+            margin-right: 5px;
+            /* เพิ่มระยะห่างด้านขวาของรูป */
         }
 
         /* เพิ่มสไตล์ CSS เพื่อย้ายลิงก์ "เข้าร่วม" ไปด้านขวา */
         .join-link {
-            margin-left: auto; /* ทำให้ลิงก์เลื่อนไปทางขวาของเมนู */
+            margin-left: auto;
+            /* ทำให้ลิงก์เลื่อนไปทางขวาของเมนู */
         }
     </style>
 </head>
+
 <body>
-<nav>
-    <a href="index.html">
-        <img src="home_icon.png"> <!-- ใส่รูปภาพแทนข้อความ "หน้าหลัก" -->
-    </a>
-    <a href="about.html">ABOUT</a>
-    <a href="HOWTO.html">HOWTO</a>
-    <a href="Creator.html">CREATOR</a>
-    <a href="webapp.html" class="join-link">เข้าร่วม</a> <!-- เพิ่มลิงก์ "เข้าร่วม" และใช้ class="join-link" เพื่อให้สามารถใช้ CSS ปรับการแสดงผลได้ -->
-</nav>
+    <nav>
+        <a href="/index.html">
+            <img src="home_icon.png"> <!-- ใส่รูปภาพแทนข้อความ "หน้าหลัก" -->
+        </a>
+        <a href="/about.html">ABOUT</a>
+        <a href="/HOWTO.html">HOWTO</a>
+        <a href="/Creator.html">CREATOR</a>
+        <a href="/webapp.html" class="join-link">Upload</a>
+        <!-- เพิ่มลิงก์ "เข้าร่วม" และใช้ class="join-link" เพื่อให้สามารถใช้ CSS ปรับการแสดงผลได้ -->
+    </nav>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เว็บไซต์ของฉัน</title>
-    <style>
-        /* จัดรูปแบบส่วนหัวของหน้าเว็บ */
-        header {
-            text-align: center; /* จัดข้อความไปที่ตรงกลาง */
-            padding: 80px 0; /* เพิ่มช่องว่างด้านบนและด้านล่าง */
-            color: black; /* สีข้อความ */
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>เว็บไซต์ของฉัน</title>
+        <style>
+            /* จัดรูปแบบส่วนหัวของหน้าเว็บ */
+            header {
+                text-align: center;
+                /* จัดข้อความไปที่ตรงกลาง */
+                padding: 80px 0;
+                /* เพิ่มช่องว่างด้านบนและด้านล่าง */
+                color: black;
+                /* สีข้อความ */
+            }
 
-        /* จัดรูปแบบกล่องข้อความ */
-        .upload-box {
-            background-color: #ff0000; /* สีพื้นหลังสีแดง */
-            color: #000; /* สีข้อความสีดำ */
-            padding: 20px; /* เพิ่มช่องว่างรอบข้อความ */
-            display: inline-block; /* กำหนดให้กล่องข้อความมีขนาดเท่ากับข้อความภายใน */
-            cursor: pointer; /* เปลี่ยนรูปเคอร์เซอร์เป็นเครื่องหมายมือ */
-        }
+            /* จัดรูปแบบกล่องข้อความ */
+            .upload-box {
+                background-color: #ff0000;
+                /* สีพื้นหลังสีแดง */
+                color: #000;
+                /* สีข้อความสีดำ */
+                padding: 20px;
+                /* เพิ่มช่องว่างรอบข้อความ */
+                display: inline-block;
+                /* กำหนดให้กล่องข้อความมีขนาดเท่ากับข้อความภายใน */
+                cursor: pointer;
+                /* เปลี่ยนรูปเคอร์เซอร์เป็นเครื่องหมายมือ */
+            }
 
 
-        /* ปรับขนาดตัวหนังสือใน <h1> */
-        h1 {
-            font-size: 48px; /* ปรับขนาดตัวหนังสือเป็น 48px */
-        }
-    </style>
-</head>
+            /* ปรับขนาดตัวหนังสือใน <h1> */
+            h1 {
+                font-size: 48px;
+                /* ปรับขนาดตัวหนังสือเป็น 48px */
+            }
+        </style>
+    </head>
 
-<header>
-    <h1>VALOLYZE</h1>
-    <h1>About</h1>
-</header>
-<!-- ------------------------------------------------------------------------------ -->
+    <header>
+        <h1>VALOLYZE</h1>
+        <h1>About</h1>
+    </header>
+    <!-- ------------------------------------------------------------------------------ -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Fields Example</title>
-    <style>
-        .container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            padding: 1rem;
-        }
-        .card {
-            background-color: #2c2f33;
-            padding: 1rem;
-            border-radius: 5px;
-            color: #ffffff;
-        }
-        .card h2 {
-            cursor: pointer; /* Add pointer cursor */
-            margin-top: 0; /* Remove default margin */
-            color: #ffffff;
-            text-decoration: none; /* Remove default underline */
-        }
-        .card select {
-            width: 100%;
-            height: 2.5rem;
-            border: none;
-            border-radius: 5px;
-            padding: 0.5rem;
-            background-color: #3c3f46;
-            color: #ffffff;
-            appearance: none;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="card">
-            <a href="https://drive.google.com/file/d/1GEDE-1T5-gw9zaiYlCevSye06Ok4axdv/view?usp=sharing"><h2><img src="home_icon.png"></h2></a> <!-- Add anchor tag -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Select Fields Example</title>
+        <style>
+            .container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .card {
+                background-color: #2c2f33;
+                padding: 1rem;
+                border-radius: 5px;
+                color: #ffffff;
+            }
+
+            .card h2 {
+                cursor: pointer;
+                /* Add pointer cursor */
+                margin-top: 0;
+                /* Remove default margin */
+                color: #ffffff;
+                text-decoration: none;
+                /* Remove default underline */
+            }
+
+            .card select {
+                width: 100%;
+                height: 2.5rem;
+                border: none;
+                border-radius: 5px;
+                padding: 0.5rem;
+                background-color: #3c3f46;
+                color: #ffffff;
+                appearance: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="card">
+                <a href="https://drive.google.com/file/d/1GEDE-1T5-gw9zaiYlCevSye06Ok4axdv/view?usp=sharing">
+                    <h2><img src="home_icon.png"></h2>
+                </a> <!-- Add anchor tag -->
+            </div>
+            <div class="card">
+                <a href="https://github.com/Nattakonjpg/Project-Valolyze">
+                    <h2><img src="home_icon.png"></h2>
+                </a> <!-- Add anchor tag -->
+            </div>
+            <div class="card">
+                <a href="https://youtu.be/Ik228UkBp6w?si=PaEshomycvWgWgrE">
+                    <h2><img src="home_icon.png"></h2>
+                </a> <!-- Add anchor tag -->
+            </div>
         </div>
-        <div class="card">
-            <a href="https://github.com/Nattakonjpg/Project-Valolyze"><h2><img src="home_icon.png"></h2></a> <!-- Add anchor tag -->
-        </div>
-        <div class="card">
-            <a href="https://youtu.be/Ik228UkBp6w?si=PaEshomycvWgWgrE"><h2><img src="home_icon.png"></h2></a> <!-- Add anchor tag -->
-        </div>
-    </div>
-</body>
-<!-- ------------------------------------------------------------------------------ -->
+    </body>
+    <!-- ------------------------------------------------------------------------------ -->
 
-<p>Currently, online gaming is continuously gaining popularity, largely due to the easy accessibility of computer devices and convenient internet connections. There are various types of online games, such as multiplayer first-person shooters like Counter-Strike: Global Offensive and Valorant. Competing against players worldwide in professional-level tournaments is known as the "E-sports" or Electronic Sports scene. In E-sports, players demonstrate their skills and expertise in competitive gaming at a high level. The growth of the E-sports industry has been remarkable, impacting both the sports industry and global society. This growth has led to professional-level competitions receiving support and investment from major companies, as well as garnering interest from players and viewers worldwide. One crucial factor that gives teams an edge in competitions is data regarding players' gaming performance. This data, analyzed by players and experts, serves as a significant variable in team training, increasing their chances of winning against opposing teams.</p>
+    <p>Currently, online gaming is continuously gaining popularity, largely due to the easy accessibility of computer
+        devices and convenient internet connections. There are various types of online games, such as multiplayer
+        first-person shooters like Counter-Strike: Global Offensive and Valorant. Competing against players worldwide in
+        professional-level tournaments is known as the "E-sports" or Electronic Sports scene. In E-sports, players
+        demonstrate their skills and expertise in competitive gaming at a high level. The growth of the E-sports
+        industry has been remarkable, impacting both the sports industry and global society. This growth has led to
+        professional-level competitions receiving support and investment from major companies, as well as garnering
+        interest from players and viewers worldwide. One crucial factor that gives teams an edge in competitions is data
+        regarding players' gaming performance. This data, analyzed by players and experts, serves as a significant
+        variable in team training, increasing their chances of winning against opposing teams.</p>
 
-<img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
+    <img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
 
-<p>In today's gaming landscape, many games like CSGO or DOTA 2 provide replay files and log files that publicly disclose game data from start to finish for download. However, in games like Valorant, which researchers may analyze, there are no publicly available replay files or log files for download. As a result, analysis typically involves scrutinizing gameplay recordings from videos, which can be time-consuming or less efficient in extracting comprehensive insights.</p>
+    <p>In today's gaming landscape, many games like CSGO or DOTA 2 provide replay files and log files that publicly
+        disclose game data from start to finish for download. However, in games like Valorant, which researchers may
+        analyze, there are no publicly available replay files or log files for download. As a result, analysis typically
+        involves scrutinizing gameplay recordings from videos, which can be time-consuming or less efficient in
+        extracting comprehensive insights.</p>
 
-<img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
+    <img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
 
-<p>Researchers are therefore interested in developing an analysis system for Valorant games that can categorize actions into buying, shooting, planting, using skills, defusing, collecting orbs, and deaths from gameplay recordings. Because noteworthy events often involve actions, this system aims to assist users in analyzing player actions and efficiently identifying events that impact player actions</p>
+    <p>Researchers are therefore interested in developing an analysis system for Valorant games that can categorize
+        actions into buying, shooting, planting, using skills, defusing, collecting orbs, and deaths from gameplay
+        recordings. Because noteworthy events often involve actions, this system aims to assist users in analyzing
+        player actions and efficiently identifying events that impact player actions</p>
 
-<img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
+    <img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
 
-<p>In this research, the researchers have developed a machine learning model for categorizing player actions from gameplay recordings of Valorant's Competitive mode. This model aims to reduce the time and increase the efficiency of analysis.</p>
+    <p>In this research, the researchers have developed a machine learning model for categorizing player actions from
+        gameplay recordings of Valorant's Competitive mode. This model aims to reduce the time and increase the
+        efficiency of analysis.</p>
 
-<img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
+    <img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
 
 
 </html>
