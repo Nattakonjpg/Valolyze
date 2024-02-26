@@ -138,7 +138,6 @@
 
         .image-container {
             text-align: center;
-            size: 30 px;
         }
 
         .section {
@@ -147,8 +146,20 @@
         }
 
         .image-container2 {
-            size: 2rem;
             text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            /* กำหนดให้ความกว้างของรูปภาพไม่เกินความกว้างของพ่อค้า (container) */
+            height: auto;
+            /* ปรับสัดส่วนของรูปภาพ */
+        }
+
+        .image-container2 img {
+            max-width: 100%;
+            height: auto;
+
         }
     </style>
 </head>
@@ -176,17 +187,17 @@
     <div class="container">
         <div class="card">
             <a href="https://drive.google.com/file/d/1GEDE-1T5-gw9zaiYlCevSye06Ok4axdv/view?usp=sharing">
-                <h2><img src="./LegalDoc/Paper_Page.png" height="2.5rem"></h2>
+                <h2><img src="./LegalDoc/Paper_Page.png"></h2>
             </a>
         </div>
         <div class="card">
             <a href="https://github.com/Nattakonjpg/Project-Valolyze">
-                <h2><img src="./LegalDoc/Icon_github.png" height="5rem"></h2>
+                <h2><img src="./LegalDoc/Icon_github.png"></h2>
             </a>
         </div>
         <div class="card">
             <a href="https://youtu.be/Ik228UkBp6w?si=PaEshomycvWgWgrE">
-                <h2><img src="./LegalDoc/Icon_youtube.png" height="5rem"></h2>
+                <h2><img src="./LegalDoc/Icon_youtube.png"></h2>
             </a>
         </div>
     </div>
