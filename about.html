@@ -43,11 +43,11 @@
 
         /* เพิ่มสไตล์ CSS เพื่อปรับขนาดรูปให้เหมาะสม */
         nav img {
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             vertical-align: middle;
             /* ช่วยให้รูปอยู่ตรงกลางตามสูงของเท็ก */
-            margin-right: 5px;
+            margin-right: 3px;
             /* เพิ่มระยะห่างด้านขวาของรูป */
         }
 
@@ -66,8 +66,9 @@
             /* จัดข้อความไปที่ตรงกลาง */
             padding: 80px 0;
             /* เพิ่มช่องว่างด้านบนและด้านล่าง */
-            color: black;
+            color: #ffffff;
             /* สีข้อความ */
+            filter: blur(7.5px);
         }
 
         /* ปรับขนาดตัวหนังสือใน <h1> */
@@ -115,6 +116,13 @@
             background-color: #3c3f46;
             color: #ffffff;
             appearance: none;
+        }
+
+        .card img {
+            width: 50px;
+            /* ปรับขนาดตามที่คุณต้องการ */
+            height: auto;
+            /* รักษาสัดส่วนของรูปภาพ */
         }
     </style>
 </head>
