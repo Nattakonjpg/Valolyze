@@ -134,6 +134,15 @@
             height: auto;
             /* รักษาสัดส่วนของรูปภาพ */
         }
+
+        .img-link {
+            height: 120px;
+            /* กำหนดความสูงของรูปภาพ */
+            width: auto;
+            /* ให้กว้างปรับตามอัตราส่วน */
+            margin-bottom: 10px;
+            /* เพิ่มระยะห่างด้านล่างของรูปภาพ */
+        }
     </style>
 </head>
 
@@ -159,24 +168,32 @@
 <body
     style="background-image: url('./LegalDoc/Background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="container">
-        <div class="card">
-            <a href="https://drive.google.com/file/d/1GEDE-1T5-gw9zaiYlCevSye06Ok4axdv/view?usp=sharing">
-                <h2><img src="./LegalDoc/Paper_Page.png"></h2>
-            </a>
-        </div>
-        <div class="card">
-            <a href="https://github.com/Nattakonjpg/Project-Valolyze">
-                <h2><img src="./LegalDoc/Icon_github.png"></h2>
-            </a>
-        </div>
-        <div class="card">
-            <a href="https://youtu.be/Ik228UkBp6w?si=PaEshomycvWgWgrE">
-                <h2><img src="./LegalDoc/Icon_youtube.png"></h2>
-            </a>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <a href="https://drive.google.com/file/d/1GEDE-1T5-gw9zaiYlCevSye06Ok4axdv/view?usp=sharing">
+                            <img src="./LegalDoc/Paper_Page.png" class="img-link" height="120px"><br>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://youtu.be/zJeGVH_gyI8;feature=youtu.be">
+                            <img src="./LegalDoc/Icon_youtube.png" class="img-link" height="120px"><br>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Nattakonjpg/Project-Valolyze">
+                            <img src="./LegalDoc/Icon_github.png" class="img-link" height="120px"><br>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
+
 </body>
 
+<!-- ------------------------------------------------------------------------------ -->
 
 <p class="tab-indent">Currently, online gaming is continuously gaining popularity, largely due to the easy
     accessibility of computer
@@ -190,8 +207,7 @@
     regarding players' gaming performance. This data, analyzed by players and experts, serves as a significant
     variable in team training, increasing their chances of winning against opposing teams.</p>
 
-<img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
-
+<img src="./LegalDoc/Movinets pytorch.png" alt="Image Description" style="width: 100%; height: auto;">
 <p class="tab-indent">In today's gaming landscape, many games like CSGO or DOTA 2 provide replay files and log files
     that publicly
     disclose game data from start to finish for download. However, in games like Valorant, which researchers may
@@ -199,22 +215,21 @@
     involves scrutinizing gameplay recordings from videos, which can be time-consuming or less efficient in
     extracting comprehensive insights.</p>
 
-<img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
-
+<img src="./LegalDoc/Workflow.png" alt="Image Description" style="width: 100%; height: auto;">
 <p class="tab-indent">Researchers are therefore interested in developing an analysis system for Valorant games that
     can categorize
     actions into buying, shooting, planting, using skills, defusing, collecting orbs, and deaths from gameplay
     recordings. Because noteworthy events often involve actions, this system aims to assist users in analyzing
     player actions and efficiently identifying events that impact player actions</p>
 
-<img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
+<img src="./LegalDoc/Input_output.png" alt="Image Description" style="width: 100%; height: auto;">
 
 <p class="tab-indent">In this research, the researchers have developed a machine learning model for categorizing
     player actions from
     gameplay recordings of Valorant's Competitive mode. This model aims to reduce the time and increase the
     efficiency of analysis.</p>
 
-<img src="your-image-url.jpg" alt="Image Description" style="width: 100%; height: auto;">
+<img src="./LegalDoc/Process_Flow.jpg" alt="Image Description" style="width: 100%; height: auto;">
 
 
 </html>
