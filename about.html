@@ -65,7 +65,13 @@
             background-repeat: no-repeat;
             margin: 0;
             padding: 0;
-            color: #ffffff;
+        }
+
+
+        header {
+            position: relative;
+            text-align: center;
+            padding: 90px 0;
         }
 
         /* ปรับขนาดตัวหนังสือใน <h1> */
@@ -132,6 +138,10 @@
             margin-bottom: 10px;
             /* เพิ่มระยะห่างด้านล่างของรูปภาพ */
         }
+
+        .image-container {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -176,45 +186,51 @@
 </body>
 
 <!-- ------------------------------------------------------------------------------ -->
-<p class="tab-indent" style="font-size: 16px;">Currently, online gaming is continuously gaining popularity, largely due
-    to the easy accessibility of computer devices and convenient internet connections. There are various types of online
-    games,
-    such as multiplayer first-person shooters like Counter-Strike: Global Offensive and Valorant. Competing against
-    players worldwide
-    in professional-level tournaments is known as the "E-sports" or Electronic Sports scene. In E-sports, players
-    demonstrate their skills and expertise in competitive gaming at a high level. The growth of the E-sports
-    industry has been remarkable, impacting both the sports industry and global society. This growth has led to
-    professional-level competitions receiving support and investment from major companies, as well as garnering
-    interest from players and viewers worldwide. One crucial factor that gives teams an edge in competitions is data
-    regarding players' gaming performance. This data, analyzed by players and experts, serves as a significant
-    variable in team training, increasing their chances of winning against opposing teams.</p>
 
-<img src="./LegalDoc/Movinets pytorch.png" alt="Image Description" style="width: 25%; height: auto;">
-<p class="tab-indent" style="font-size: 16px;">In today's gaming landscape, many games like CSGO or DOTA 2 provide
-    replay files and log files
-    that publicly
-    disclose game data from start to finish for download. However, in games like Valorant, which researchers may
-    analyze, there are no publicly available replay files or log files for download. As a result, analysis typically
-    involves scrutinizing gameplay recordings from videos, which can be time-consuming or less efficient in
-    extracting comprehensive insights.</p>
+<div class="section">
+    <p class="tab-indent" style="font-size: 20px;">Currently, online gaming is continuously gaining popularity, largely
+        due to the easy accessibility of computer devices and convenient internet connections. There are various types
+        of online games, such as multiplayer first-person shooters like Counter-Strike: Global Offensive and Valorant.
+        Competing against players worldwide in professional-level tournaments is known as the "E-sports" or Electronic
+        Sports scene. In E-sports, players demonstrate their skills and expertise in competitive gaming at a high level.
+        The growth of the E-sports industry has been remarkable, impacting both the sports industry and global society.
+        This growth has led to professional-level competitions receiving support and investment from major companies, as
+        well as garnering interest from players and viewers worldwide. One crucial factor that gives teams an edge in
+        competitions is data regarding players' gaming performance. This data, analyzed by players and experts, serves
+        as a significant variable in team training, increasing their chances of winning against opposing teams.</p>
 
-<img src="./LegalDoc/Workflow.png" alt="Image Description" style="width: 25%; height: auto;">
-<p class="tab-indent" style="font-size: 16px;">Researchers are therefore interested in developing an analysis system for
-    Valorant games that
-    can categorize
-    actions into buying, shooting, planting, using skills, defusing, collecting orbs, and deaths from gameplay
-    recordings. Because noteworthy events often involve actions, this system aims to assist users in analyzing
-    player actions and efficiently identifying events that impact player actions</p>
+    <div class="image-container">
+        <img src="./LegalDoc/Movinets pytorch.png" alt="Image Description">
+    </div>
 
-<img src="./LegalDoc/Input_output.png" alt="Image Description" style="width: 25%; height: auto;">
+    <p class="tab-indent" style="font-size: 20px;">In today's gaming landscape, many games like CSGO or DOTA 2 provide
+        replay files and log files that publicly disclose game data from start to finish for download. However, in games
+        like Valorant, which researchers may analyze, there are no publicly available replay files or log files for
+        download. As a result, analysis typically involves scrutinizing gameplay recordings from videos, which can be
+        time-consuming or less efficient in extracting comprehensive insights.</p>
 
-<p class="tab-indent" style="font-size: 16px;">In this research, the researchers have developed a machine learning model
-    for categorizing
-    player actions from
-    gameplay recordings of Valorant's Competitive mode. This model aims to reduce the time and increase the
-    efficiency of analysis.</p>
+    <div class="image-container">
+        <img src="./LegalDoc/Workflow.png" alt="Image Description">
+    </div>
 
-<img src="./LegalDoc/Process_Flow.jpg" alt="Image Description" style="width: 25%; height: auto;">
+    <p class="tab-indent" style="font-size: 20px;">Researchers are therefore interested in developing an analysis system
+        for Valorant games that can categorize actions into buying, shooting, planting, using skills, defusing,
+        collecting orbs, and deaths from gameplay recordings. Because noteworthy events often involve actions, this
+        system aims to assist users in analyzing player actions and efficiently identifying events that impact player
+        actions</p>
+
+    <div class="image-container">
+        <img src="./LegalDoc/Input_output.png" alt="Image Description">
+    </div>
+
+    <p class="tab-indent" style="font-size: 20px;">In this research, the researchers have developed a machine learning
+        model for categorizing player actions from gameplay recordings of Valorant's Competitive mode. This model aims
+        to reduce the time and increase the efficiency of analysis.</p>
+
+    <div class="image-container">
+        <img src="./LegalDoc/Process_Flow.jpg" alt="Image Description">
+    </div>
+</div>
 
 
 </html>
