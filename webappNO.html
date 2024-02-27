@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webapp</title>
+    <link rel="stylesheet" type="text/css" href="./LegalDoc/css/styles_webapp.css">
+</head>
+
+<body>
+    <h2>File Upload & Video Gameplay Preview</h2>
+    <form id="file-upload-form" class="uploader">
+        <input id="file-upload" type="file" name="fileUpload" accept="video/mp4,video/avi" />
+
+        <label for="file-upload" id="file-drag">
+            <img id="file-image" class="hidden">
+            <div id="start">
+                <i class="fa fa-download" aria-hidden="true"></i>
+                <div
+                    style="font-size: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                    Select a file or drag here
+                </div>
+                <div id="notimage" class="hidden">Please select a Video Gameplay
+                </div>
+                <br>
+                <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+            </div>
+            <div id="response" class="hidden">
+                <div id="messages"></div>
+                <progress class="progress" id="file-progress" value="0">
+                    <span>0</span>
+                </progress>
+            </div>
+            <div id="close-container" style="display: none;">
+                <button id="close-btn" class="close-btn">&times;</button>
+            </div>
+        </label>
+    </form>
+    <script src="./LegalDoc/js/webapp.js"></script>
+</body>
+
+<body>
+    <main class="main-content2">
+        <div class="new-container">
+            <h2>Action</h2>
+            <form class="action-select-form" id="file-upload-form">
+                <div id="start">
+                    <span class="action-select-btn" id="file-upload-btn">
+                        Select Action
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="new-container3">
+            <!-- Content of container3 goes here -->
+        </div>
+    </main>
+</body>
+
+
+</html>
