@@ -12,3 +12,6 @@ def upload_file():
 
     file.save(f'uploads/{file.filename}')
     return redirect('')
+
+if __name__ =="__main__":
+    app.run(host='0.0.0.0',debug=True,port=5001)#host='0.0.0.0", port=500
