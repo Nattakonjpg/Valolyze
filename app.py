@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
+import os
 
 app = Flask(__name__)
-    
-UPLOAD_FOLDER = 'uploads'  
+
+UPLOAD_FOLDER = '/home/thanapat_window/codes/Valolyze/static'  # ระบุโฟลเดอร์ที่จะเก็บวิดีโอ
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/home_web')
@@ -13,31 +15,22 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/creator')
-def creator():
-    return render_template('Creator.html')
-
 @app.route('/webapp') 
 def upload():
     return render_template('webapp.html')
 
+@app.route('/creator')
+def creator():
+    return render_template('Creator.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    if 'file' not in request.files:
-        # ถ้าไม่มีไฟล์ในคำขอ
-        return 'No file part'
+    if request.method == 'POST':
+        file = request.files['file']
+        if file:
+            filename = file.filename
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('home'))
 
-    file = request.files['file']
-
-    if file.filename == '':
-        # ถ้าไม่ได้เลือกไฟล์
-        return 'No selected file'
-
-    # ทำอะไรกับไฟล์ที่ถูกอัปโหลด เช่น บันทึกลงในโฟลเดอร์
-    file.save('uploads/' + file.filename)
-
-    return 'File uploaded successfully'
-
-if __name__ =="__main__":
-    app.run(host='0.0.0.0',debug=True,port=5001)#host='0.0.0.0", port=500
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True, port=5001)
