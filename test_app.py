@@ -7,12 +7,12 @@ def index():
   return render_template('test_webapp.html')
 
 @app.route('/upload', methods=['POST'])
-def upload_file():
+def upload():
     file = request.file['file']
 
     file.save(f'uploads/{file.filename}')
-    
-    return redirect('')
+
+    return redirect('/')
 
 if __name__ =="__main__":
     app.run(host='0.0.0.0',debug=True,port=5001)#host='0.0.0.0", port=500
