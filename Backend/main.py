@@ -29,7 +29,7 @@ Bs_Test = 1
 loaded_model = MoViNet(_C.MODEL.MoViNetA5, causal=False, pretrained=True)
 loaded_model.classifier[3] = torch.nn.Conv3d(2048, 8, (1, 1, 1))
 # ระบุ path ของ checkpoint ที่คุณต้องการโหลด
-best_checkpoint_path = r'D:\Python\Backend_python\A5_yoru+habor_Checkpoint_epoch_round112.pth'
+best_checkpoint_path = r'/home/nattakonpu/codes/Valolyze/A5_yoru+habor_Checkpoint_epoch_round112.pth'
 # Load the checkpoint, specifying map_location to CPU
 best_checkpoint = torch.load(
     best_checkpoint_path, map_location=torch.device('cpu'))
@@ -39,13 +39,13 @@ loaded_model.load_state_dict(best_checkpoint['model_state_dict'])
 loaded_model.eval()
 
 # ระบุ path ของวิดีโอที่ต้องการตัด
-inputVideo = r"D:\Python\Backend_python\video_data\test_video_fullvideo\ตัวละคร\รอบ 1.avi"
+inputVideo = r"/home/nattakonpu/codes/Valolyze/Backend/video_data/test_videofull/agent/round/รอบ 1.avi"
 # ระบุ path ที่ต้องการบันทึกไฟล์ผลลัพธ์
-outputFolderVideo = r"D:\Python\Backend_python\video_data\test_video_cutvideo\ตัวละคร\รอบ 1\test"
+outputFolderVideo = r"Backend/video_data/test_cutvideo/agent/round/"
 # ระบุความยาวของคลิปวิดีโอที่ต้องการตัด (วินาที)
 clipDuration = 2
 # ระบุ path ที่ต้องการบันทึกไฟล์ CSV
-output_csv = r"D:\Python\Backend_python\Output\Time\ตัวละคร\round1.csv"
+output_csv = r"Backend/Output/Time/agent/round1.csv"
 
 cut_video(inputVideo, outputFolderVideo, clipDuration, output_csv)
 df = pd.read_csv(output_csv)
