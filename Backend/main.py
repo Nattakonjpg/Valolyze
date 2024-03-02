@@ -41,11 +41,11 @@ loaded_model.eval()
 # ระบุ path ของวิดีโอที่ต้องการตัด
 inputVideo = r"/home/nattakonpu/codes/Valolyze/Backend/video_data/test_videofull/agent/round/รอบ 1.avi"
 # ระบุ path ที่ต้องการบันทึกไฟล์ผลลัพธ์
-outputFolderVideo = r"Backend/video_data/test_cutvideo/agent/round/"
+outputFolderVideo = r"/home/nattakonpu/codes/Valolyze/Backend/video_data/test_cutvideo/agent/round/"
 # ระบุความยาวของคลิปวิดีโอที่ต้องการตัด (วินาที)
 clipDuration = 2
 # ระบุ path ที่ต้องการบันทึกไฟล์ CSV
-output_csv = r"Backend/Output/Time/agent/round1.csv"
+output_csv = r"/home/nattakonpu/codes/Valolyze/Backend/Output/Time/agent/round1.csv"
 
 cut_video(inputVideo, outputFolderVideo, clipDuration, output_csv)
 df = pd.read_csv(output_csv)
