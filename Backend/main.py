@@ -69,5 +69,5 @@ evaluate_model(loaded_model, test_loader_A5, output_path)
 
 path1 = output_path
 path2 = output_csv
-path3 = r"/home/nattakonpu/codes/Valolyze/Backend/Output/FinalPredict+time_Round_1.csv"
+path3 = r"/home/nattakonpu/codes/Valolyze/Backend/Output/Final/FinalPredict+time_Round_1.csv"
 combine_and_transform_csv(path1, path2, path3)
