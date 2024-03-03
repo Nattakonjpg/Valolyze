@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file
 import os
+import subprocess
 
 app = Flask(__name__)
 
@@ -33,6 +34,8 @@ def upload_file():
         if file:
             filename = file.filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            #เรียกใช้หลัง main.py หลังอัพโหลดเสร็จ
+            subprocess.Popen(["python", "/home/nattakonpu/codes/Valolyze/Backend/main.py"])
             return redirect(url_for('home'))
 
 @app.route('/download')
