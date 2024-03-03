@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Upload</title>
+    <style>
+        #container {
+            display: flex;
+        }
+        #left-side, #right-side {
+            flex: 1;
+            padding: 20px;
+        }
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="left-side">
+            <h2>Upload Video</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".mp4, .mov, .avi">
+                <input type="submit" value="Upload">
+            </form>
+            <div id="output">
+                <!-- ส่วนนี้จะแสดงวิดิโอที่อัปโหลด -->
+            </div>
+        </div>
+        <div id="right-side">
+            <h1>Upload Video</h1>
+        </div>
+    </div>
+</body>
+</html>
