@@ -8,6 +8,7 @@ OUTPUT_FOLDER = '/home/nattakonpu/codes/Valolyze/Backend/Output/Final/'  # à¸£à¸
 
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['OUTPUT_FOLDER'] = OUTPUT_FOLDER
 
 @app.route('/home_web')
 def home():    
