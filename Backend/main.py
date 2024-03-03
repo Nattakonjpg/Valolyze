@@ -53,21 +53,21 @@ print(df.tail())
 
 # เรียกใช้งาน function
 # outputFolderVideo = มาจาก video ตัดซอย 2 วิแล้วใช้ folder เดียวกัน
-#output_file_text = r"D:\Python\Backend python file\test_train_splits\ตัวละคร\รอบ 1\test_test_split1.txt"
+output_file_text = r"/home/nattakonpu/codes/Valolyze/Backend/test_train_splits/agent/round/test_test_split1.txt"
 
-# create_test_split(outputFolderVideo, output_file_text)
+create_test_split(outputFolderVideo, output_file_text)
 
-#data_dir = r"D:\Python\Backend python file\video_data\test_video_cutvideo\ตัวละคร\รอบ 1"
-#split_dir = r"D:\Python\Backend python file\test_train_splits\ตัวละคร\รอบ 1"
-# test_loader_A5 = prepare_hmdb51_test_loader(data_dir, split_dir)
-# print(test_loader_A5.dataset)
+data_dir = r"/home/nattakonpu/codes/Valolyze/Backend/video_data/test_cutvideo/agent/round/"
+split_dir = r"/home/nattakonpu/codes/Valolyze/Backend/test_train_splits/agent/round/"
+test_loader_A5 = prepare_hmdb51_test_loader(data_dir, split_dir)
+print(test_loader_A5.dataset)
 
 # ระบุเส้นทางที่จะบันทึกผลลัพธ์
-#output_path = r"D:\Python\Backend python file\Output\Predict\ตัวละคร\Round1.csv"
+output_path = r"/home/nattakonpu/codes/Valolyze/Backend/Output/Predict/agent/Round1.csv"
 # เรียกใช้ฟังก์ชัน
-# evaluate_model(loaded_model, test_loader_A5, output_path)
+evaluate_model(loaded_model, test_loader_A5, output_path)
 
-#path1 = output_path
-#path2 = output_csv
-#path3 = r"D:\Python\Backend python file\Output\Final csv\ตัวละคร\Predict+time_Round_14.csv"
-#combine_and_transform_csv(path1, path2, path3)
+path1 = output_path
+path2 = output_csv
+path3 = r"/home/nattakonpu/codes/Valolyze/Backend/Output/FinalPredict+time_Round_1.csv"
+combine_and_transform_csv(path1, path2, path3)
