@@ -13,7 +13,7 @@ app.config['OUTPUT_FOLDER'] = OUTPUT_FOLDER
 
 @app.route('/home_web')
 def home():    
-    return render_template("index.html")
+    return render_template("New_index.html")
 
 @app.route('/about')
 def about():
