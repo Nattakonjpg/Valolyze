@@ -186,7 +186,7 @@ function uploadAndDisplayVideo(event) {
 }
 function displayCSVData() {
     // Fetch the CSV data from the server
-    fetch('/home/nattakonpu/codes/Valolyze/Backend/Output/Final/FinalPredict+time_Round_1.csv')
+    fetch('/csv_data')
         .then(response => response.text())
         .then(data => {
             // Parse the CSV data
