@@ -173,13 +173,11 @@ function uploadAndDisplayVideo(event) {
             videoElement.setAttribute('controls', '');
             videoElement.style.width = '100%';
 
-            // อ่านข้อมูลวิดีโอและแสดงใน element video
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                videoElement.src = e.target.result;
-                document.querySelector('.new-container3').appendChild(videoElement);
-            };
-            reader.readAsDataURL(file);
+            // กำหนด source ของวิดีโอ
+            videoElement.src = '/home/nattakonpu/codes/Valolyze/static/img/' + file.name;
+
+            // เพิ่มวิดีโอลงใน element container
+            document.querySelector('.new-container3').appendChild(videoElement);
         } else {
             // หากการอัปโหลดไม่สำเร็จ แสดงข้อความผิดพลาด
             console.error('Upload failed. Status: ' + xhr.status);
