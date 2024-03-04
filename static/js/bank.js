@@ -171,8 +171,8 @@ function uploadAndDisplayVideo(event) {
             videoElement.setAttribute('controls', '');
             videoElement.style.width = '100%';
 
-            // เปลี่ยน URL เพื่อให้ดึงวิดีโอจากเซิร์ฟเวอร์
-            videoElement.src = '/get_video/' + file.name;
+            // Assuming the file is saved with the same name
+            videoElement.src = '/static/img/' + file.name;
 
             document.body.appendChild(videoElement);
         } else {
