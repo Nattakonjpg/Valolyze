@@ -25,7 +25,7 @@ def upload():
 
 @app.route('/creator')
 def creator():
-    return render_template('creator.html')
+    return render_template('Creator.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
