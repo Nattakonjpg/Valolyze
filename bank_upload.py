@@ -21,7 +21,7 @@ def about():
 
 @app.route('/webapp') 
 def upload():
-    return render_template('webapp.html')
+    return render_template('bank.html')
 
 @app.route('/creator')
 def creator():
