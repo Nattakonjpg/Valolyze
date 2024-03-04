@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Process Video</title>
+    <link rel="stylesheet" href="./static/css/webapp_css_last.css">
+    <script src="./static/js/bank.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .left,
+        .right {
+            flex: 1;
+        }
+
+        .left {
+            text-align: left;
+            margin-right:10px
+        }
+
+        .right {
+            text-align: right;
+            margin-right:80px;
+        }
+
+
+        .video-container video {
+            width: 80%;
+            height: auto;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .button__icon {
+            margin-left: 5px;
+        }
+
+        .new-container3 {
+            max-width: 20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-right: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Upload and Play Video</h1>
+            <div class="video-container">
+                <video controls id="uploaded-video">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data" onsubmit="uploadAndDisplayVideo(event)">
+                    <input type="file" name="file" accept=".mp4, .mov, .avi">
+                    <input type="submit" value="Upload">
+                </form>
+            </div>
+        </div>
+
+        <div class="new-container3">
+            <div class="right">
+                <h1>Download Result</h1>
+                <a href="/download" class="button" download style="text-decoration: none;">
+                  <span class="button__text">Download</span>
+                  <span class="button__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" id="bdd05811-e15d-428c-bb53-8661459f9307" data-name="Layer 2" class="svg">
+                        <path
+                            d="M17.5,22.131a1.249,1.249,0,0,1-1.25-1.25V2.187a1.25,1.25,0,0,1,2.5,0V20.881A1.25,1.25,0,0,1,17.5,22.131Z">
+                        </path>
+                        <path
+                            d="M17.5,22.693a3.189,3.189,0,0,1-2.262-.936L8.487,15.006a1.249,1.249,0,0,1,1.767-1.767l6.751,6.751a.7.7,0,0,0,.99,0l6.751-6.751a1.25,1.25,0,0,1,1.768,1.767l-6.752,6.751A3.191,3.191,0,0,1,17.5,22.693Z">
+                        </path>
+                        <path
+                            d="M31.436,34.063H3.564A3.318,3.318,0,0,1,.25,30.749V22.011a1.25,1.25,0,0,1,2.5,0v8.738a.815.815,0,0,0,.814.814H31.436a.815.815,0,0,0,.814-.814V22.011a1.25,1.25,0,1,1,2.5,0v8.738A3.318,3.318,0,0,1,31.436,34.063Z">
+                        </path>
+                    </svg>
+                  </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function uploadAndDisplayVideo(event) {
+            event.preventDefault(); // ป้องกันการส่งค่าแบบปกติของฟอร์ม
+
+            // ดึงข้อมูลไฟล์ที่อัปโหลด
+            const file = document.querySelector('input[type="file"]').files[0];
+            const fileURL = URL.createObjectURL(file);
+
+            // ตั้งค่า source ของวิดีโอใหม่
+            const video = document.getElementById('uploaded-video');
+            video.src = fileURL;
+
+            fetch('/upload', {
+                method: 'POST',
+                body: new FormData(event.target)
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Upload successful');
+                // ทำอะไรก็ตามที่คุณต้องการหลังจากอัปโหลดสำเร็จ
+                } else {
+                    console.error('Upload failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('static/FinalPredict+time_Round_1.csv')
+                .then(response => response.text())
+                .then(data => {
+                    const rows = data.split('\n');
+                    const table = document.createElement('table');
+
+                    // Create table header
+                    const headerRow = document.createElement('tr');
+                    const headers = rows[0].split(',');
+                    headers.forEach(header => {
+                        const th = document.createElement('th');
+                        th.textContent = header;
+                        headerRow.appendChild(th);
+                    });
+                    table.appendChild(headerRow);
+
+                    // Create table rows
+                    for (let i = 1; i < rows.length; i++) {
+                        const rowData = rows[i].split(',');
+                        const row = document.createElement('tr');
+                        rowData.forEach(cellData => {
+                           const td = document.createElement('td');
+                           td.textContent = cellData;
+                           row.appendChild(td);
+                        });
+                        table.appendChild(row);
+                    }
+
+                    // Append the table to the container
+                    const tableContainer = document.querySelector('.new-container3');
+                    tableContainer.appendChild(table);
+                })
+                .catch(error => console.error('Error fetching CSV data:', error));
+        });
+    </script>
+</body>
+
+</html>
