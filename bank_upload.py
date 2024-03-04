@@ -49,10 +49,5 @@ def download_final_predict():
     file_path = os.path.join(app.config['OUTPUT_FOLDER'], 'FinalPredict+time_Round_1.csv')
     return send_file(file_path, as_attachment=True)
 
-@app.route('/get_video/<filename>')
-def get_video(filename):
-    return send_from_directory(app.config['STATIC_IMG_FOLDER'], filename)
-
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=5001)
