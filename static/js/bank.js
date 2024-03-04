@@ -166,20 +166,16 @@ function uploadAndDisplayVideo(event) {
 
     // กำหนดการทำงานเมื่อการอัปโหลดเสร็จสมบูรณ์
     xhr.onload = function () {
-        // เมื่ออัปโหลดเสร็จสมบูรณ์ แสดงวิดีโอที่ได้
         if (xhr.status === 200) {
-            // สร้าง element video และกำหนดคุณสมบัติ
             var videoElement = document.createElement('video');
             videoElement.setAttribute('controls', '');
             videoElement.style.width = '100%';
 
-            // กำหนด source ของวิดีโอ
-            videoElement.src = '/home/nattakonpu/codes/Valolyze/static/img/' + file.name;
+            // เปลี่ยน URL เพื่อให้ดึงวิดีโอจากเซิร์ฟเวอร์
+            videoElement.src = '/get_video/' + file.name;
 
-            // เพิ่มวิดีโอลงใน element container
             document.body.appendChild(videoElement);
         } else {
-            // หากการอัปโหลดไม่สำเร็จ แสดงข้อความผิดพลาด
             console.error('Upload failed. Status: ' + xhr.status);
         }
     };
