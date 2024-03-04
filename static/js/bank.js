@@ -172,7 +172,7 @@ function uploadAndDisplayVideo(event) {
             videoElement.style.width = '100%';
 
             // Assuming the file is saved with the same name
-            videoElement.src = '/static/img/' + file.name;
+            videoElement.src = './static/img/' + file.name;
 
             document.body.appendChild(videoElement);
         } else {
