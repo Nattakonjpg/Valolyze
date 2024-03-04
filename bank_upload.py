@@ -4,8 +4,8 @@ import subprocess
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = '/home/nattakonpu/codes/Valolyze/Backend/video_data/test_videofull/agent/round'  # ระบุโฟลเดอร์ที่จะเก็บวิดีโอ
-OUTPUT_FOLDER = '/home/nattakonpu/codes/Valolyze/Backend/Output/Final/'  # ระบุโฟลเดอร์ที่มีไฟล์ที่ต้องการส่งออก
+UPLOAD_FOLDER = '/home/thanapat_window/codes/Valolyze/Backend/video_data/test_videofull/agent/round'  # ระบุโฟลเดอร์ที่จะเก็บวิดีโอ
+OUTPUT_FOLDER = '/home/thanapat_window/codes/Valolyze/Backend/Output/Final/'  # ระบุโฟลเดอร์ที่มีไฟล์ที่ต้องการส่งออก
 
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
