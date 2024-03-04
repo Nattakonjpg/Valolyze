@@ -174,17 +174,13 @@ function uploadAndDisplayVideo(event) {
             videoElement.style.width = '100%';
 
             // กำหนด source ของวิดีโอ
-            videoElement.src = '/home/nattakonpu/codes/Valolyze/static/img/' + file.name;
+            videoElement.src = '/static/img/' + file.name;
 
             // เพิ่มวิดีโอลงใน element container
-            document.querySelector('.new-container3').appendChild(videoElement);
+            document.body.appendChild(videoElement);
         } else {
             // หากการอัปโหลดไม่สำเร็จ แสดงข้อความผิดพลาด
             console.error('Upload failed. Status: ' + xhr.status);
         }
-    };
-
-    // เปิดการเชื่อมต่อและส่งข้อมูลไปยังเซิร์ฟเวอร์
-    xhr.open('POST', '/upload', true);
-    xhr.send(formData);
+    }
 }
