@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, send_file
+from flask import Flask, render_template, request, redirect, url_for, send_file, shutil
 import os
 import subprocess
 
@@ -38,6 +38,9 @@ def upload_file():
             filename = file.filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file.save(os.path.join(app.config['STATIC_IMG_FOLDER'], filename))  # บันทึกไฟล์วิดีโอไว้ในโฟลเดอร์สำหรับการแสดงในเว็บด้วย
+            # คัดลอกไฟล์วิดีโอไปยัง static folder
+
+            shutil.copy(UPLOAD_FOLDER, STATIC_IMG_FOLDER)
 
             #เรียกใช้หลัง main.py หลังอัพโหลดเสร็จ
             subprocess.Popen(["python", "/home/nattakonpu/codes/Valolyze/Backend/main.py"])
