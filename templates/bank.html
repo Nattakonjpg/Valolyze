@@ -51,7 +51,7 @@
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        fetch('/home/nattakonpu/codes/Valolyze/Backend/Output/Final/FinalPredict+time_Round_1.csv')
+        fetch('FinalPredict+time_Round_1.csv')
             .then(response => response.text())
             .then(data => {
                 const rows = data.split('\n');
