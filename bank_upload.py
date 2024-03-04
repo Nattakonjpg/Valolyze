@@ -49,5 +49,10 @@ def download_final_predict():
     file_path = os.path.join(app.config['OUTPUT_FOLDER'], 'FinalPredict+time_Round_1.csv')
     return send_file(file_path, as_attachment=True)
 
+@app.route('/csv_data')
+def get_csv_data():
+    csv_path = '/home/nattakonpu/codes/Valolyze/Backend/Output/Final/FinalPredict+time_Round_1.csv'
+    return send_file(csv_path, as_attachment=True)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=5001)
