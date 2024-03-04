@@ -17,7 +17,7 @@ def home():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('New_about.html')
 
 @app.route('/webapp') 
 def upload():
@@ -35,7 +35,7 @@ def upload_file():
             filename = file.filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             #เรียกใช้หลัง main.py หลังอัพโหลดเสร็จ
-            subprocess.Popen(["python", "/home/thanapat_window/codes/Valolyze/Backend/main.py"])
+            subprocess.Popen(["python", "/home/nattakonpu/codes/Valolyze/Backend/main.py"])
             return redirect(url_for('home'))
 
 @app.route('/download')
