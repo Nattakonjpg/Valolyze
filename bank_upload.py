@@ -42,6 +42,8 @@ def upload_file():
 
             #เรียกใช้หลัง main.py หลังอัพโหลดเสร็จ
             subprocess.Popen(["python", "/home/nattakonpu/codes/Valolyze/Backend/main.py"])
+
+            subprocess.Popen(["curl", "http://localhost:5001/fetch_data"])
             return redirect(url_for('home'))
 
 @app.route('/download')
