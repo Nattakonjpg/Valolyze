@@ -45,7 +45,7 @@
 
     h2 {
         font-family: "Roboto", sans-serif;
-        font-size: 24px;
+        font-size: 32px;
         line-height: 0;
         color: #454cad;
         text-align: center;
@@ -468,6 +468,7 @@
 
     .button .svg {
         width: 20px;
+        font-family: "Roboto", sans-serif;
         fill: #fff;
     }
 
