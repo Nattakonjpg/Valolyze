@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, send_file, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, send_file, send_from_directory, jsonify
 import shutil
 import os
 import subprocess
@@ -49,6 +49,12 @@ def download_final_predict():
     file_path = os.path.join(app.config['OUTPUT_FOLDER'], 'FinalPredict+time_Round_1.csv')
     return send_file(file_path, as_attachment=True)
 
+@app.route('/fetch_data')
+def fetch_data():
+    file_path = os.path.join(app.config['OUTPUT_FOLDER'], 'FinalPredict+time_Round_1.csv')
+    with open(file_path, 'r') as f:
+        data = f.read()
+    return jsonify(data=data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=5001)
