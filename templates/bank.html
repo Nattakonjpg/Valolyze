@@ -63,25 +63,7 @@
                 </tr>
             </thead>
             <tbody id="video-timeline-body">
-                <!-- ข้อมูลแถวในตารางจะถูกเพิ่มทางด้านล่างนี้ -->
-                <!-- ตัวอย่างการเพิ่มแถว -->
-                <tr>
-                    <td>00:00:00</td>
-                    <!-- เพิ่มคอลัมน์อื่น ๆ ตามต้องการ -->
-                </tr>
-                <tr>
-                    <td>00:00:02</td>
-                    <!-- เพิ่มคอลัมน์อื่น ๆ ตามต้องการ -->
-                </tr>
-                <tr>
-                    <td>00:00:06</td>
-                    <!-- เพิ่มคอลัมน์อื่น ๆ ตามต้องการ -->
-                </tr>
-                <!-- สามารถเพิ่มแถวอื่น ๆ ตามต้องการได้ -->
-                <tr>
-                    <td>00:00:06</td>
-                    <!-- เพิ่มคอลัมน์อื่น ๆ ตามต้องการ -->
-                </tr>
+                <!-- ที่นี่เราจะเพิ่มแถวใน JavaScript -->
             </tbody>
         </table>
         <div class="new-container3"></div><br><a href="/download" class="button" download
@@ -136,22 +118,16 @@
                 const rowData = rows[i].split(',');
                 const row = document.createElement('tr');
 
-                rowData.forEach((cellData, index) => {
+                rowData.forEach(cellData => {
                     const td = document.createElement('td');
-                    if (index === 0) {
-                        const time = document.createElement('time');
-                        time.textContent = formatTime(cellData); // ใช้ฟังก์ชัน formatTime เพื่อแปลงเวลา
-                        td.appendChild(time);
-                    } else {
-                        td.textContent = cellData;
-                    }
+                    td.textContent = cellData;
                     row.appendChild(td);
                 });
 
                 row.addEventListener('click', function (event) {
                     const time = event.currentTarget.cells[0].textContent;
                     const video = document.getElementById('uploaded-video');
-                    video.currentTime = parseTime(time); // ใช้ฟังก์ชัน parseTime เพื่อแปลงเวลากลับไปเป็นทศนิยม
+                    video.currentTime = parseFloat(time);
                 });
 
                 tbody.appendChild(row); // เพิ่มแถวลงใน tbody แทนที่จะเพิ่มลงใน table
@@ -163,50 +139,37 @@
             tableContainer.appendChild(table);
         }
 
-        // ฟังก์ชันเพิ่มเข้ามาเพื่อแปลงเวลาในรูปแบบ HH:mm:ss เป็นทศนิยม (เวลาที่ต้องการไปใช้กับ video.currentTime)
-        function parseTime(timeString) {
-            const [hours, minutes, seconds] = timeString.split(':').map(parseFloat);
-            return hours * 3600 + minutes * 60 + seconds;
-        }
+        const pollingInterval = 15000;
+        fetchDataAndDisplayCSV();
+        setInterval(fetchDataAndDisplayCSV, pollingInterval);
+    });
 
-        // ฟังก์ชันเพิ่มเข้ามาเพื่อแปลงเวลาที่ให้มาจาก CSV เป็นรูปแบบ HH:mm:ss
-        function formatTime(timeInSeconds) {
-            const hours = Math.floor(timeInSeconds / 3600);
-            const minutes = Math.floor((timeInSeconds % 3600) / 60);
-            const seconds = Math.floor(timeInSeconds % 60);
-            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
+    function uploadAndDisplayVideo(event) {
+        event.preventDefault();
 
-        function uploadAndDisplayVideo(event) {
-            event.preventDefault();
+        const file = document.querySelector('input[type="file"]').files[0];
+        const fileURL = URL.createObjectURL(file);
+        const video = document.getElementById('uploaded-video');
+        video.src = fileURL;
 
-            const file = document.querySelector('input[type="file"]').files[0];
-            const fileURL = URL.createObjectURL(file);
-            const video = document.getElementById('uploaded-video');
-            video.src = fileURL;
-
-            fetch('/upload', {
-                method: 'POST',
-                body: new FormData(event.target)
+        fetch('/upload', {
+            method: 'POST',
+            body: new FormData(event.target)
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Upload successful');
+                } else {
+                    console.error('Upload failed');
+                }
             })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Upload successful');
-                    } else {
-                        console.error('Upload failed');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
 
-        const form = document.querySelector('form');
-        form.addEventListener('submit', uploadAndDisplayVideo);
-
-        fetchDataAndDisplayCSV(); // เรียกใช้งานฟังก์ชันเมื่อหน้าเว็บโหลดเสร็จ
-        setInterval(fetchDataAndDisplayCSV, 15000); // ให้ฟังก์ชันทำงานเป็นระยะ ๆ
-    }); // ปิดวงเล็บของ DOMContentLoaded
+    const form = document.querySelector('form');
+    form.addEventListener('submit', uploadAndDisplayVideo);
 </script>
 
 </html>
