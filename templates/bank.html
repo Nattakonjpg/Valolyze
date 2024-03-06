@@ -55,6 +55,17 @@
                 <div id="start"><span class="action-select-btn" id="file-upload-btn">Select Action </span></div>
             </form>
         </div>
+        <table id="video-timeline">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <!-- เพิ่มคอลัมน์อื่น ๆ ตามต้องการ -->
+                </tr>
+            </thead>
+            <tbody id="video-timeline-body">
+                <!-- ที่นี่เราจะเพิ่มแถวใน JavaScript -->
+            </tbody>
+        </table>
         <div class="new-container3"></div><br><a href="/download" class="button" download
             style="text-decoration: none;"><span class="button__text">Download</span><span class="button__icon"><svg
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" id="bdd05811-e15d-428c-bb53-8661459f9307"
@@ -71,53 +82,30 @@
                 </svg></span></a>
     </main>
 </body>
-<script>function uploadAndDisplayVideo(event) {
-        event.preventDefault(); // ป้องกันการส่งค่าแบบปกติของฟอร์ม
-
-        // ดึงข้อมูลไฟล์ที่อัปโหลด
-        const file = document.querySelector('input[type="file"]').files[0];
-        const fileURL = URL.createObjectURL(file);
-
-        // ตั้งค่า source ของวิดีโอใหม่
-        const video = document.getElementById('uploaded-video');
-        video.src = fileURL;
-
-        fetch('/upload', {
-            method: 'POST',
-            body: new FormData(event.target)
-
-        }).then(response => {
-            if (response.ok) {
-                console.log('Upload successful');
-                // ทำอะไรก็ตามที่คุณต้องการหลังจากอัปโหลดสำเร็จ
-            }
-
-            else {
-                console.error('Upload failed');
-            }
-
-        }).catch(error => {
-            console.error('Error:', error);
-        });
-    }
-
+<script>
     document.addEventListener('DOMContentLoaded', function () {
-        function fetchData() {
-            fetch('/fetch_data').then(response => response.json()).then(data => {
-                // Handle the fetched data here
-                console.log(data);
-                displayCSVData(data.data);
-            }).catch(error => console.error('Error fetching data:', error));
+        let lastFetchedData = ''; // เก็บข้อมูล CSV ล่าสุด
+
+        function fetchDataAndDisplayCSV() {
+            fetch('/fetch_data')
+                .then(response => response.json())
+                .then(data => {
+                    const currentData = data.data;
+                    if (currentData !== lastFetchedData) { // เปรียบเทียบกับข้อมูล CSV ล่าสุด
+                        console.log(data);
+                        displayCSVData(currentData);
+                        lastFetchedData = currentData; // อัปเดตข้อมูล CSV ล่าสุด
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
         }
 
         function displayCSVData(csvData) {
-            const rows = csvData.split('\n');
             const table = document.createElement('table');
+            const rows = csvData.split('\n');
 
-            // Create table header
             const headerRow = document.createElement('tr');
             const headers = rows[0].split(',');
-
             headers.forEach(header => {
                 const th = document.createElement('th');
                 th.textContent = header;
@@ -125,33 +113,63 @@
             });
             table.appendChild(headerRow);
 
-            // Create table rows
+            const tbody = document.createElement('tbody'); // เพิ่มส่วน tbody เพื่อใส่ข้อมูลของแถวในตาราง
             for (let i = 1; i < rows.length; i++) {
-                const rowData = rows[i].split(','); const row = document.createElement('tr');
+                const rowData = rows[i].split(',');
+                const row = document.createElement('tr');
 
                 rowData.forEach(cellData => {
                     const td = document.createElement('td');
                     td.textContent = cellData;
                     row.appendChild(td);
                 });
-                table.appendChild(row);
+
+                row.addEventListener('click', function (event) {
+                    const time = event.currentTarget.cells[0].textContent;
+                    const video = document.getElementById('uploaded-video');
+                    video.currentTime = parseFloat(time);
+                });
+
+                tbody.appendChild(row); // เพิ่มแถวลงใน tbody แทนที่จะเพิ่มลงใน table
             }
 
-            // Append the table to the container
+            table.appendChild(tbody); // เพิ่ม tbody ลงใน table
             const tableContainer = document.querySelector('.new-container3');
-            tableContainer.innerHTML = ''; // Clear the previous data
+            tableContainer.innerHTML = '';
             tableContainer.appendChild(table);
         }
 
-        // Polling interval in milliseconds
-        const pollingInterval = 5000; // 5 seconds
-
-        // Call fetchData function initially
-        fetchData();
-
-        // Set up polling
-        setInterval(fetchData, pollingInterval);
+        const pollingInterval = 15000;
+        fetchDataAndDisplayCSV();
+        setInterval(fetchDataAndDisplayCSV, pollingInterval);
     });
+
+    function uploadAndDisplayVideo(event) {
+        event.preventDefault();
+
+        const file = document.querySelector('input[type="file"]').files[0];
+        const fileURL = URL.createObjectURL(file);
+        const video = document.getElementById('uploaded-video');
+        video.src = fileURL;
+
+        fetch('/upload', {
+            method: 'POST',
+            body: new FormData(event.target)
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Upload successful');
+                } else {
+                    console.error('Upload failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    const form = document.querySelector('form');
+    form.addEventListener('submit', uploadAndDisplayVideo);
 </script>
 
 </html>
