@@ -32,6 +32,24 @@
         form {
             margin-top: 20px;
         }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+            cursor: pointer;
+            /* เพิ่ม Cursor เมื่อ hover */
+        }
     </style>
 
 </head>
@@ -87,10 +105,9 @@
                 .then(response => response.json())
                 .then(data => {
                     const currentData = data.data;
-                    if (currentData !== lastFetchedData) { // เปรียบเทียบกับข้อมูล CSV ล่าสุด
-                        console.log(data);
+                    if (currentData !== lastFetchedData) {
                         displayCSVData(currentData);
-                        lastFetchedData = currentData; // อัปเดตข้อมูล CSV ล่าสุด
+                        lastFetchedData = currentData;
                     }
                 })
                 .catch(error => console.error('Error fetching data:', error));
@@ -109,7 +126,7 @@
             });
             table.appendChild(headerRow);
 
-            const tbody = document.createElement('tbody'); // เพิ่มส่วน tbody เพื่อใส่ข้อมูลของแถวในตาราง
+            const tbody = document.createElement('tbody');
             for (let i = 1; i < rows.length; i++) {
                 const rowData = rows[i].split(',');
                 const row = document.createElement('tr');
@@ -123,19 +140,24 @@
                 row.addEventListener('click', function (event) {
                     const time = event.currentTarget.cells[0].textContent;
                     const video = document.getElementById('uploaded-video');
-                    video.currentTime = parseFloat(time);
+                    const timeArray = time.split(':');
+                    const hours = parseInt(timeArray[0], 10);
+                    const minutes = parseInt(timeArray[1], 10);
+                    const seconds = parseInt(timeArray[2], 10);
+                    const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+                    video.currentTime = totalSeconds;
                 });
 
-                tbody.appendChild(row); // เพิ่มแถวลงใน tbody แทนที่จะเพิ่มลงใน table
+                tbody.appendChild(row);
             }
 
-            table.appendChild(tbody); // เพิ่ม tbody ลงใน table
+            table.appendChild(tbody);
             const tableContainer = document.querySelector('.new-container3');
             tableContainer.innerHTML = '';
             tableContainer.appendChild(table);
         }
 
-        const pollingInterval = 15000;
+        const pollingInterval = 30000;
         fetchDataAndDisplayCSV();
         setInterval(fetchDataAndDisplayCSV, pollingInterval);
     });
