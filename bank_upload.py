@@ -15,6 +15,10 @@ app.config['OUTPUT_FOLDER'] = OUTPUT_FOLDER
 app.config['STATIC_IMG_FOLDER'] = STATIC_IMG_FOLDER
 
 
+# ฟังก์ชันเช็คว่าไฟล์โมเดลมีอยู่หรือไม่
+def check_model_file_existence(model_file_path):
+    return os.path.exists(model_file_path)
+
 @app.route('/home_web')
 def home():    
     return render_template("New_index.html")
