@@ -69,11 +69,11 @@
         <br>
         <div class="model-selection">
             <select id="model-select">
-                <option value="model_yoru.pth">Model Yoru</option>
-                <option value="A5_Sage_epoch_round6.pth">Model Sage</option>
-                <option value="model_sova.pth">Model Sova</option>
-                <option value="model_habor.pth">Model Habor</option>
-                <option value="model_jett.pth">Model Jett</option>
+                <option value="/home/nattakonpu/codes/Valolyze/A5_Yoru_epoch_round6.pth">Model Yoru</option>
+                <option value="/home/nattakonpu/codes/Valolyze/A5_Sage_epoch_round6.pth">Model Sage</option>
+                <option value="/home/nattakonpu/codes/Valolyze/A5_Sova_epoch_round6.pth">Model Sova</option>
+                <option value="/home/nattakonpu/codes/Valolyze/A5_habor_1_3006.pth">Model Habor</option>
+                <option value="/home/nattakonpu/codes/Valolyze/A5_Jett_1_3006.pth">Model Jett</option>
             </select>
             <button onclick="loadModel()">Load Model</button>
             <p id="selected-model-msg" style="display: none; color: green;">Model loaded successfully!</p>
@@ -200,13 +200,24 @@
     form.addEventListener('submit', uploadAndDisplayVideo);
     function loadModel() {
         var selectElement = document.getElementById("model-select");
+
+        // Check if element with id "model-select" exists
+        if (!selectElement) {
+            console.error("Error: Element with id 'model-select' not found.");
+            return;
+        }
+
         var selectedModel = selectElement.value;
 
         // Check if a model is selected
         if (selectedModel) {
             // Show success message
             var successMsg = document.getElementById("selected-model-msg");
-            successMsg.style.display = "block";
+            if (successMsg) {
+                successMsg.style.display = "block";
+            } else {
+                console.error("Error: Element with id 'selected-model-msg' not found.");
+            }
 
             // Here you can proceed with loading the selected model for analysis
             // Example: You can perform further processing with the selected model
@@ -216,6 +227,7 @@
             alert("Please select a model!");
         }
     }
+
 
 </script>
 
