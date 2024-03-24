@@ -73,11 +73,11 @@
         <br>
         <div class="model-selection">
             <select id="model-select">
-                <option value="A5_Yoru_epoch_round6.pth">Model Yoru</option>
-                <option value="A5_Sage_epoch_round6.pth">Model Sage</option>
-                <option value="A5_Sova_epoch_round6.pth">Model Sova</option>
-                <option value="A5_habor_1_3006.pth">Model Habor</option>
-                <option value="A5_Jett_1_3006.pth">Model Jett</option>
+                <option value="./static/img/A5_Yoru_epoch_round6.pth">Model Yoru</option>
+                <option value="./static/img/A5_Sage_epoch_round6.pth">Model Sage</option>
+                <option value="./static/img/A5_Sova_epoch_round6.pth">Model Sova</option>
+                <option value="./static/img/A5_habor_3_3006.pth">Model Habor</option>
+                <option value="./static/img/A5_Jett_1_3006.pth">Model Jett</option>
             </select>
             <button onclick="loadModel()">Load Model</button>
             <p id="selected-model-msg" style="display: none; color: green;">Model loaded successfully!</p>
@@ -239,9 +239,9 @@
     }
 
     // Function to check if the selected model file exists
-    function checkModelFileExistence(modelFile) {
+    function checkModelFileExistence(modelURL) {
         return new Promise((resolve, reject) => {
-            fetch(modelFile)
+            fetch(modelURL)
                 .then(response => {
                     if (response.ok) {
                         resolve();
@@ -254,6 +254,7 @@
                 });
         });
     }
+
 
 </script>
 
