@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webapp</title>
-    <link rel="stylesheet" href="./static/css/stylesbank_webapp.css">
+    <link rel="stylesheet" href="stylesbank_webapp.css">
     <script src="./static/js/bank.js"></script>
     <style>
         .container {
@@ -202,6 +202,7 @@
 
     const form = document.querySelector('form');
     form.addEventListener('submit', uploadAndDisplayVideo);
+
     function loadModel() {
         var selectElement = document.getElementById("model-select");
 
@@ -215,23 +216,45 @@
 
         // Check if a model is selected
         if (selectedModel) {
-            // Show success message
-            var successMsg = document.getElementById("selected-model-msg");
-            if (successMsg) {
-                successMsg.style.display = "block";
-            } else {
-                console.error("Error: Element with id 'selected-model-msg' not found.");
-            }
-
-            // Here you can proceed with loading the selected model for analysis
-            // Example: You can perform further processing with the selected model
-            console.log("Selected Model:", selectedModel);
+            // Check if the selected model file exists
+            // For demonstration purpose, assume checking file existence here is asynchronous
+            checkModelFileExistence(selectedModel)
+                .then(() => {
+                    // Show success message if the model file exists
+                    var successMsg = document.getElementById("selected-model-msg");
+                    if (successMsg) {
+                        successMsg.style.display = "block";
+                    } else {
+                        console.error("Error: Element with id 'selected-model-msg' not found.");
+                    }
+                    console.log("Selected Model:", selectedModel);
+                })
+                .catch(() => {
+                    // Show error message if the model file does not exist
+                    alert("Selected model file does not exist!");
+                });
         } else {
             // Show error message if no model is selected
             alert("Please select a model!");
         }
     }
 
+    // Function to check if the selected model file exists
+    function checkModelFileExistence(modelFile) {
+        return new Promise((resolve, reject) => {
+            // For demonstration purpose, assume checking file existence here is asynchronous
+            // Here, you can implement the logic to check if the model file exists
+            // For example, you can make a fetch request to the server to check if the file exists
+            // If the file exists, resolve the promise; otherwise, reject it
+            // This is just a placeholder function
+            // Replace it with your actual logic to check file existence
+            setTimeout(() => {
+                // For demonstration, assume the file exists
+                // In a real scenario, you need to implement logic to check file existence
+                resolve();
+            }, 1000);
+        });
+    }
 
 </script>
 
