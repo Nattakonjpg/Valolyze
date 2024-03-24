@@ -56,22 +56,32 @@
 
 <body>
     <div class="container">
-        <h2>File Upload & Video Gameplay Preview</h2>
+        <h2>Upload File Video & Video Gameplay Preview</h2>
         <div class="video-container">
             <video controls id="uploaded-video">
                 <source src="" type="video/mp4">
             </video>
         </div>
+        <br>
         <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="uploadAndDisplayVideo(event)">
             <input type="file" name="file" accept="video/*"><input type="submit" value="Upload">
         </form>
+        <br>
+        <div class="model-selection">
+            <select id="model-select">
+                <option value="model_yoru.pth">Model Yoru</option>
+                <option value="A5_Sage_epoch_round6.pth">Model Sage</option>
+                <option value="model_sova.pth">Model Sova</option>
+                <option value="model_habor.pth">Model Habor</option>
+                <option value="model_jett.pth">Model Jett</option>
+            </select>
+            <button onclick="loadModel()">Load Model</button>
+            <p id="selected-model-msg" style="display: none; color: green;">Model loaded successfully!</p>
+        </div>
     </div>
     <main class="main-content2">
         <div class="new-container">
-            <h2>Action</h2>
-            <form class="action-select-form" id="file-upload-form">
-                <div id="start"><span class="action-select-btn" id="file-upload-btn">Select Action </span></div>
-            </form>
+            <h2>Table Action</h2>
         </div>
         <table id="video-timeline">
             <thead>
@@ -188,6 +198,25 @@
 
     const form = document.querySelector('form');
     form.addEventListener('submit', uploadAndDisplayVideo);
+    function loadModel() {
+        var selectElement = document.getElementById("model-select");
+        var selectedModel = selectElement.value;
+
+        // Check if a model is selected
+        if (selectedModel) {
+            // Show success message
+            var successMsg = document.getElementById("selected-model-msg");
+            successMsg.style.display = "block";
+
+            // Here you can proceed with loading the selected model for analysis
+            // Example: You can perform further processing with the selected model
+            console.log("Selected Model:", selectedModel);
+        } else {
+            // Show error message if no model is selected
+            alert("Please select a model!");
+        }
+    }
+
 </script>
 
 </html>
