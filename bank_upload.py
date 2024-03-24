@@ -19,29 +19,6 @@ app.config['STATIC_IMG_FOLDER'] = STATIC_IMG_FOLDER
 def check_model_file_existence(model_file_path):
     return os.path.exists(model_file_path)
 
-@app.route('/load-model', methods=['POST'])
-def load_model():
-    selected_model_path = request.json['selectedModelPath']
-    
-    # ตรวจสอบค่าที่เลือกและตั้งค่า best_checkpoint_path ตามโมเดลที่เลือก
-    if selected_model_path == "./static/img/A5_Yoru_epoch_round6.pth":
-        best_checkpoint_path = "/path/to/Yoru_checkpoint.pth"
-    elif selected_model_path == "./static/img/A5_Sage_epoch_round6.pth":
-        best_checkpoint_path = "/path/to/Sage_checkpoint.pth"
-    elif selected_model_path == "./static/img/A5_Sova_epoch_round6.pth":
-        best_checkpoint_path = "/path/to/Sova_checkpoint.pth"
-    elif selected_model_path == "./static/img/A5_habor_3_3006.pth":
-        best_checkpoint_path = "/path/to/Habor_checkpoint.pth"
-    elif selected_model_path == "./static/img/A5_Jett_1_3006.pth":
-        best_checkpoint_path = "/path/to/Jett_checkpoint.pth"
-    else:
-        return "Invalid model selected", 400
-    
-    # โหลดโมเดลด้วย best_checkpoint_path ที่ถูกต้อง
-    # โค้ดโหลดโมเดลในนี้
-
-    return 'Model loaded successfully!', 200
-
 @app.route('/home_web')
 def home():    
     return render_template("New_index.html")
