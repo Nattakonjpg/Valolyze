@@ -60,6 +60,7 @@
 
 <body>
     <div class="container">
+        <h2>Model A5 Yoru </h2>
         <h2>Upload File Video & Video Gameplay Preview</h2>
         <div class="video-container">
             <video controls id="uploaded-video">
@@ -73,11 +74,11 @@
         <br>
         <div class="model-selection">
             <select id="model-select">
-                <option value="./static/img/A5_Yoru_epoch_round6.pth">Model Yoru</option>
                 <option value="./static/img/A5_Sage_epoch_round6.pth">Model Sage</option>
                 <option value="./static/img/A5_Sova_epoch_round6.pth">Model Sova</option>
                 <option value="./static/img/A5_habor_3_3006.pth">Model Habor</option>
                 <option value="./static/img/A5_Jett_1_3006.pth">Model Jett</option>
+                <option value="nothing">ทดสอบให้ขึ้น error</option>
             </select>
             <button onclick="loadModel()">Load Model</button>
             <p id="selected-model-msg" style="display: none; color: green;">Model loaded successfully!</p>
@@ -227,6 +228,10 @@
                         console.error("Error: Element with id 'selected-model-msg' not found.");
                     }
                     console.log("Selected Model:", selectedModel);
+
+                    // Redirect to the corresponding model page
+                    var modelName = selectedModel.split("/").pop().replace(".pth", "");
+                    window.location.href = "./templates/" + modelName + ".html";
                 })
                 .catch(() => {
                     // Show error message if the model file does not exist
@@ -237,6 +242,7 @@
             alert("Please select a model!");
         }
     }
+
 
     // Function to check if the selected model file exists
     function checkModelFileExistence(modelURL) {
