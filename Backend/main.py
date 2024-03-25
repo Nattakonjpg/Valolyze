@@ -29,7 +29,7 @@ Bs_Test = 1
 loaded_model = MoViNet(_C.MODEL.MoViNetA5, causal=False, pretrained=True)
 loaded_model.classifier[3] = torch.nn.Conv3d(2048, 8, (1, 1, 1))
 # ระบุ path ของ checkpoint ที่คุณต้องการโหลด
-best_checkpoint_path = r'/home/nattakonpu/codes/Valolyze/A5_yoru+habor_Checkpoint_epoch_round112.pth'
+best_checkpoint_path = r'/home/nattakonpu/codes/Valolyze/static/img/A5_Yoru_epoch_round6.pth'
 # Load the checkpoint, specifying map_location to CPU
 best_checkpoint = torch.load(
     best_checkpoint_path, map_location=torch.device('cpu'))
