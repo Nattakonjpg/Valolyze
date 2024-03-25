@@ -30,7 +30,7 @@ def combine_and_transform_csv(df1_path, df2_path, output_path):
     for label in df_combined['predicted_label']:
         print(class_names[label])
     df_combined = df_combined.reindex(
-        columns=['clip_start_times', 'predicted_label', 'predicted_class_names'])
+        columns=['clip_start_times', 'predicted_class_names'])
 
     # พิมพ์ DataFrame ที่เกิดขึ้น
     df_combined
