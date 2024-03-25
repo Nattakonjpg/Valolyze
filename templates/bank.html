@@ -204,6 +204,11 @@
     const form = document.querySelector('form');
     form.addEventListener('submit', uploadAndDisplayVideo);
 
+    document.getElementById("model-select").addEventListener("change", function () {
+        var modelName = this.value;
+        window.location.href = modelName;
+    });
+
     function loadModel() {
         var selectElement = document.getElementById("model-select");
 
