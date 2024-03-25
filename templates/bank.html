@@ -206,8 +206,10 @@
 
     document.getElementById("model-select").addEventListener("change", function () {
         var modelName = this.value;
-        window.location.href = modelName;
+        var htmlName = modelName.replace('.pth', '.html'); // เปลี่ยนเส้นทางไฟล์ .pth เป็น .html
+        window.location.href = htmlName;
     });
+
 
     function loadModel() {
         var selectElement = document.getElementById("model-select");
