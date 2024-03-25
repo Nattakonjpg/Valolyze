@@ -231,7 +231,7 @@
 
                     // Redirect to the corresponding model page
                     var modelName = selectedModel.split("/").pop().replace(".pth", "");
-                    window.location.href = "./templates/" + modelName + ".html";
+                    window.location.href = modelName + ".html";
                 })
                 .catch(() => {
                     // Show error message if the model file does not exist
