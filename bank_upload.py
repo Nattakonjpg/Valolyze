@@ -44,17 +44,17 @@ def sage():
 
 
 @app.route('/Sova.html')
-def sage():
+def Sova():
     return render_template('Sova.html')
 
 
 @app.route('/Jett.html')
-def sage():
+def Jett():
     return render_template('Jett.html')
 
 
 @app.route('/Habor.html')
-def sage():
+def Habor():
     return render_template('Habor.html')
 
 
