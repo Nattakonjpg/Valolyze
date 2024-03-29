@@ -38,6 +38,26 @@ def upload():
     return render_template('bank.html')
 
 
+@app.route('/Sage.html')
+def sage():
+    return render_template('Sage.html')
+
+
+@app.route('/Sova.html')
+def sage():
+    return render_template('Sova.html')
+
+
+@app.route('/Jett.html')
+def sage():
+    return render_template('Jett.html')
+
+
+@app.route('/Habor.html')
+def sage():
+    return render_template('Habor.html')
+
+
 @app.route('/creator')
 def creator():
     return render_template('Creator.html')
