@@ -78,7 +78,6 @@
                 <option value="A5_Sova_epoch_round6">Model Sova</option>
                 <option value="A5_habor_3_3006">Model Habor</option>
                 <option value="A5_Jett_1_3006">Model Jett</option>
-                <option value="nothing">ทดสอบให้ขึ้น error</option>
             </select>
             <button onclick="loadModel()">Load Model</button>
             <p id="selected-model-msg" style="display: none; color: green;">Model loaded successfully!</p>
@@ -206,10 +205,29 @@
 
     document.getElementById("model-select").addEventListener("change", function () {
         var modelName = this.value;
-        var htmlName = modelName.replace('.pth', '.html'); // เปลี่ยนเส้นทางไฟล์ .pth เป็น .html
-        window.location.href = htmlName;
-    });
+        var htmlName;
 
+        // ตรวจสอบชื่อโมเดลและกำหนดชื่อไฟล์ HTML ที่เกี่ยวข้อง
+        switch (modelName) {
+            case "A5_Sage_epoch_round6":
+                htmlName = "Sage.html";
+                break;
+            case "A5_Sova_epoch_round6":
+                htmlName = "Sova.html"; // เปลี่ยนเป็นชื่อไฟล์ที่ต้องการ
+                break;
+            case "A5_habor_3_3006":
+                htmlName = "Habor.html"; // เปลี่ยนเป็นชื่อไฟล์ที่ต้องการ
+                break;
+            case "A5_Jett_1_3006":
+                htmlName = "Jett.html"; // เปลี่ยนเป็นชื่อไฟล์ที่ต้องการ
+                break;
+            default:
+                htmlName = "bank.html"; // หากไม่พบเงื่อนไขใดเข้ากัน ให้ใช้หน้าเริ่มต้นเป็นค่าเริ่มต้น
+                break;
+        }
+
+        window.location.href = htmlName; // เปลี่ยนหน้าเว็บไปยังหน้า HTML ที่ถูกเลือก
+    });
 
     function loadModel() {
         var selectElement = document.getElementById("model-select");
