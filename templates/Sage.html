@@ -60,7 +60,7 @@
 
 <body>
     <div class="container">
-        <h2>Model A5 Yoru </h2>
+        <h2>Model A5 Sage </h2>
         <h2>Upload File Video & Video Gameplay Preview</h2>
         <div class="video-container">
             <video controls id="uploaded-video">
@@ -210,7 +210,8 @@
         // ตรวจสอบชื่อโมเดลและกำหนดชื่อไฟล์ HTML ที่เกี่ยวข้อง
         switch (modelName) {
             case "A5_Yoru_epoch_round6":
-                htmlName = "bank.html";
+                // หากเลือก Model Yoru ให้เปลี่ยน URL เป็น /webapp และไม่เปลี่ยนหน้า
+                window.location.href = '/webapp';
                 break;
             case "A5_Sova_epoch_round6":
                 htmlName = "Sova.html"; // เปลี่ยนเป็นชื่อไฟล์ที่ต้องการ

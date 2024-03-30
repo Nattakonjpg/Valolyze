@@ -60,7 +60,7 @@
 
 <body>
     <div class="container">
-        <h2>Model A5 Yoru </h2>
+        <h2>Model A5 Jett </h2>
         <h2>Upload File Video & Video Gameplay Preview</h2>
         <div class="video-container">
             <video controls id="uploaded-video">
@@ -219,7 +219,8 @@
                 htmlName = "Habor.html"; // เปลี่ยนเป็นชื่อไฟล์ที่ต้องการ
                 break;
             case "A5_Yoru_epoch_round6":
-                htmlName = "bank.html"; // เปลี่ยนเป็นชื่อไฟล์ที่ต้องการ
+                // หากเลือก Model Yoru ให้เปลี่ยน URL เป็น /webapp และไม่เปลี่ยนหน้า
+                window.location.href = '/webapp';
                 break;
             default:
                 htmlName = "Jett.html"; // หากไม่พบเงื่อนไขใดเข้ากัน ให้ใช้หน้าเริ่มต้นเป็นค่าเริ่มต้น
