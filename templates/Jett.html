@@ -77,7 +77,6 @@
                 <option value="A5_Sage_epoch_round6">Model Sage</option>
                 <option value="A5_Sova_epoch_round6">Model Sova</option>
                 <option value="A5_habor_3_3006">Model Habor</option>
-                <option value="A5_Yoru_1_3006">Model Yoru</option>
             </select>
             <button onclick="loadModel()">Load Model</button>
             <p id="selected-model-msg" style="display: none; color: green;">Model loaded successfully!</p>
@@ -217,10 +216,6 @@
                 break;
             case "A5_habor_3_3006":
                 htmlName = "Habor.html"; // เปลี่ยนเป็นชื่อไฟล์ที่ต้องการ
-                break;
-            case "A5_Yoru_epoch_round6":
-                // หากเลือก Model Yoru ให้เปลี่ยน URL เป็น /webapp และไม่เปลี่ยนหน้า
-                window.location.href = '/webapp';
                 break;
             default:
                 htmlName = "Jett.html"; // หากไม่พบเงื่อนไขใดเข้ากัน ให้ใช้หน้าเริ่มต้นเป็นค่าเริ่มต้น

@@ -75,7 +75,6 @@
         <div class="model-selection">
             <select id="model-select">
                 <option value="A5_Sage_epoch_round6">Model Sage</option>
-                <option value="A5_Yoru_epoch_round6">Model Yoru</option>
                 <option value="A5_habor_3_3006">Model Habor</option>
                 <option value="A5_Jett_1_3006">Model Jett</option>
             </select>
@@ -211,10 +210,6 @@
         switch (modelName) {
             case "A5_Sage_epoch_round6":
                 htmlName = "Sage.html";
-                break;
-            case "A5_Yoru_epoch_round6":
-                // หากเลือก Model Yoru ให้เปลี่ยน URL เป็น /webapp และไม่เปลี่ยนหน้า
-                window.location.href = '/webapp';
                 break;
             case "A5_habor_3_3006":
                 htmlName = "Habor.html"; // เปลี่ยนเป็นชื่อไฟล์ที่ต้องการ
