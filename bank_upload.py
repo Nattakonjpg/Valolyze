@@ -39,22 +39,22 @@ def upload():
 
 
 @app.route('/Sage.html')
-def sage():
+def upload2():
     return render_template('Sage.html')
 
 
 @app.route('/Sova.html')
-def Sova():
+def upload3():
     return render_template('Sova.html')
 
 
 @app.route('/Jett.html')
-def Jett():
+def upload4():
     return render_template('Jett.html')
 
 
 @app.route('/Habor.html')
-def Habor():
+def upload5():
     return render_template('Habor.html')
 
 
@@ -76,6 +76,78 @@ def upload_file():
             # เรียกใช้หลัง main.py หลังอัพโหลดเสร็จ
             subprocess.Popen(
                 ["python", "/home/nattakonpu/codes/Valolyze/Backend/main.py"])
+
+            subprocess.Popen(["curl", "http://localhost:5001/fetch_data"])
+            return redirect(url_for('home'))
+
+
+@app.route('/upload2', methods=['POST'])
+def upload_file2():
+    if request.method == 'POST':
+        file = request.files['file']
+        if file:
+            filename = file.filename
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # บันทึกไฟล์วิดีโอไว้ในโฟลเดอร์สำหรับการแสดงในเว็บด้วย
+            file.save(os.path.join(app.config['STATIC_IMG_FOLDER'], filename))
+
+            # เรียกใช้หลัง main.py หลังอัพโหลดเสร็จ
+            subprocess.Popen(
+                ["python", "/home/nattakonpu/codes/Valolyze/Backend/main2.py"])
+
+            subprocess.Popen(["curl", "http://localhost:5001/fetch_data"])
+            return redirect(url_for('home'))
+
+
+@app.route('/upload3', methods=['POST'])
+def upload_file3():
+    if request.method == 'POST':
+        file = request.files['file']
+        if file:
+            filename = file.filename
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # บันทึกไฟล์วิดีโอไว้ในโฟลเดอร์สำหรับการแสดงในเว็บด้วย
+            file.save(os.path.join(app.config['STATIC_IMG_FOLDER'], filename))
+
+            # เรียกใช้หลัง main.py หลังอัพโหลดเสร็จ
+            subprocess.Popen(
+                ["python", "/home/nattakonpu/codes/Valolyze/Backend/main3.py"])
+
+            subprocess.Popen(["curl", "http://localhost:5001/fetch_data"])
+            return redirect(url_for('home'))
+
+
+@app.route('/upload4', methods=['POST'])
+def upload_file4():
+    if request.method == 'POST':
+        file = request.files['file']
+        if file:
+            filename = file.filename
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # บันทึกไฟล์วิดีโอไว้ในโฟลเดอร์สำหรับการแสดงในเว็บด้วย
+            file.save(os.path.join(app.config['STATIC_IMG_FOLDER'], filename))
+
+            # เรียกใช้หลัง main.py หลังอัพโหลดเสร็จ
+            subprocess.Popen(
+                ["python", "/home/nattakonpu/codes/Valolyze/Backend/main4.py"])
+
+            subprocess.Popen(["curl", "http://localhost:5001/fetch_data"])
+            return redirect(url_for('home'))
+
+
+@app.route('/upload5', methods=['POST'])
+def upload_file5():
+    if request.method == 'POST':
+        file = request.files['file']
+        if file:
+            filename = file.filename
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # บันทึกไฟล์วิดีโอไว้ในโฟลเดอร์สำหรับการแสดงในเว็บด้วย
+            file.save(os.path.join(app.config['STATIC_IMG_FOLDER'], filename))
+
+            # เรียกใช้หลัง main.py หลังอัพโหลดเสร็จ
+            subprocess.Popen(
+                ["python", "/home/nattakonpu/codes/Valolyze/Backend/main5.py"])
 
             subprocess.Popen(["curl", "http://localhost:5001/fetch_data"])
             return redirect(url_for('home'))
