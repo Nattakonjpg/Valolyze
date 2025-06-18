@@ -8,33 +8,35 @@
   <meta charset="utf-8" />
   <meta property="twitter:card" content="summary_large_image" />
 
-  <style data-tag="reset-style-sheet">
-    html {
-      line-height: 1.15;
-    }
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
 
-    .image1-explanation {
-      display: inline-block; /* กำหนดให้กรอบรูปอยู่ในบรรทัดเดียวกับข้อความ */
-      border: 2px solid #ddd; /* เพิ่มกรอบสีเทาอ่อนขนาด 2px รอบรูป */
-      border-radius: 10px; /* ปรับรูปร่างของขอบกรอบให้เป็นรูปร่างโค้งด้าน */
-      overflow: hidden; /* ป้องกันภาพซ้อนทับออกนอกขอบกรอบ */
-      margin: 10px; /* เพิ่มระยะห่างระหว่างกรอบของรูปแต่ละรูป */
-      align-items: center; /* จัดให้รูปและคำอธิบายชิดกันในแนวดิ่ง */
-      margin: 10px 10px 10px 0;
-    }
+  <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css" />
+  <link rel="stylesheet" href="./static/css/New_style.css" />
+  <link href="./static/css/New_index.css" rel="stylesheet" />
 
-    .image1-explanation img {
-      width: 200px; /* กำหนดให้ภาพเต็มขนาดกับกรอบรูป */
-      height: auto; /* ให้ความสูงของภาพปรับตามอัตราส่วนของภาพเอง */
-      border-radius: 10px; /* ปรับรูปร่างของขอบกรอบให้เป็นรูปร่างโค้งด้าน */
-    }
-
-
-
-
-
+  <style>
     body {
       margin: 0;
+      /* ปรับพื้นหลัง */
+      background: linear-gradient(to bottom right, #f8fafd, #f3f7fb);
+      /* พื้นหลัง gradient อ่อนลงและสว่างขึ้น คล้าย GitHub */
+      min-height: 100vh;
+      /* ให้ body มีความสูงอย่างน้อยเต็มหน้าจอ */
+      display: flex;
+      /* ใช้ flexbox เพื่อให้เนื้อหาอยู่ตรงกลางแนวตั้งได้ */
+      flex-direction: column;
+      /* จัดเรียงเนื้อหาเป็นคอลัมน์ */
+      font-family: 'Inter', sans-serif;
+      /* Font หลัก Inter */
+      color: #24292e;
+      /* สีข้อความเริ่มต้น เป็นสีเทาเข้มของ GitHub */
+      overflow-x: hidden;
+      /* เพิ่มเพื่อป้องกัน scrollbar แนวนอน */
     }
 
     * {
@@ -73,7 +75,6 @@
       font-family: inherit;
       font-size: 100%;
       line-height: 1.15;
-      margin: 0;
     }
 
     button,
@@ -114,319 +115,287 @@
 
     img {
       display: block;
+      max-width: 100%;
+      height: auto;
     }
 
     html {
-      scroll-behavior: smooth
-    }
-  </style>
-  <style data-tag="default-style-sheet">
-    html {
-      font-family: Inter;
-      font-size: 16px;
-    }
-
-    body {
-      font-weight: 400;
-      font-style: normal;
-      text-decoration: none;
-      text-transform: none;
-      letter-spacing: normal;
+      scroll-behavior: smooth;
       line-height: 1.15;
-      color: var(--dl-color-gray-black);
-      background-color: var(--dl-color-gray-white);
+    }
 
-      .image-explanation {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-around;
+    /* Container ที่ครอบคลุมทุกกล่อง Creator */
+    .creators-container {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 60px;
+      margin-bottom: 60px;
+      width: 100%;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 30px;
+      box-sizing: border-box;
+    }
+
+    /* สไตล์สำหรับแต่ละกล่อง Creator */
+    .image1-explanation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #e1e4e8;
+      /* เปลี่ยนสีขอบกรอบภาพ เป็นสีเทาอ่อนของ GitHub */
+      border-radius: 15px;
+      overflow: hidden;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      background-color: #ffffff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      flex: 1;
+      min-width: 300px;
+      max-width: 360px;
+      box-sizing: border-box;
+    }
+
+    .image1-explanation:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    /* ปรับขนาดรูปภาพภายในแต่ละกล่อง */
+    .image1-explanation img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 25px;
+      border: 4px solid #0366d6;
+      /* เปลี่ยนสีขอบรูป เป็นสีฟ้าของ GitHub */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .image1-explanation .description {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .image1-explanation .description h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: #24292e;
+      font-weight: 600;
+    }
+
+    /* ส่วนของข้อมูลติดต่อ (อีเมล, เบอร์โทร, มหาวิทยาลัย) */
+    .image1-explanation .contact-info {
+      flex-grow: 1;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 90px;
+    }
+
+    .image1-explanation .contact-info p {
+      font-family: 'Space Mono', monospace;
+      /* เปลี่ยน Font สำหรับข้อมูลติดต่อ เป็น Space Mono */
+      font-size: 0.95em;
+      line-height: 1.5;
+      color: #586069;
+      margin-bottom: 5px;
+      min-height: 1.5em;
+    }
+
+    /* ปุ่ม GitHub */
+    .github-button {
+      background-color: #24292e;
+      /* เปลี่ยนสีปุ่ม GitHub เป็นสีพื้นหลังของเว็บ GitHub */
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 7px;
+      display: inline-block;
+      margin-top: auto;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      /* ใช้ Font Inter สำหรับปุ่ม */
+      letter-spacing: 0.5px;
+    }
+
+    .github-button:hover {
+      background-color: #0366d6;
+      /* สีเมื่อ hover เป็นสีฟ้าของ GitHub */
+      transform: translateY(-2px);
+    }
+
+    /* Media Queries สำหรับ Responsive Design */
+    @media (max-width: 992px) {
+      .creators-container {
+        gap: 25px;
+        max-width: 700px;
       }
 
-      .image-explanation img {
-        width: 30%;
-        margin-right: 2%;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+      .image1-explanation {
+        flex-basis: calc(50% - 25px);
+        max-width: calc(50% - 25px);
+        padding: 25px;
       }
 
-      .image-explanation .description {
-        width: 65%;
+      .image1-explanation img {
+        width: 160px;
+        height: 160px;
       }
 
-      .image-explanation .description h3 {
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
+      .image1-explanation .description h3 {
+        font-size: 1.5rem;
       }
 
-      .image-explanation .description p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        color: #555;
-      }
-
-      .description {
-        margin-left: 10px;
-      }
-
-      /* ปุ่ม GitHub */
-      .github-button {
-        background-color: #333;
-        /* สีพื้นหลัง */
-        color: white;
-        /* สีข้อความ */
-        padding: 10px 20px;
-        /* ขนาดของปุ่ม */
-        text-decoration: none;
-        /* ลบการขีดเส้นใต้ข้อความ */
-        border-radius: 5px;
-        /* ทำให้มีเส้นรอบรูปทรง */
-        display: inline-block;
-        /* กำหนดให้เป็นบล็อกแบบอินไลน์ */
-        margin-top: 10px;
-        /* ระยะห่างด้านบน */
-      }
-
-      .github-button:hover {
-        background-color: #555;
-        /* สีพื้นหลังเมื่อชี้เม้าส์ */
+      .image1-explanation .contact-info {
+        min-height: 80px;
       }
     }
-  </style>
-  <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700;800&amp;display=swap"
-    data-tag="font" />
-  <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css" />
-  <link rel="stylesheet" href="./static/css/New_style.css" />
-  <link href="./static/css/New_index.css" rel="stylesheet" />
 
-  <style>
-    @keyframes fade-in-left {
-      0% {
-        opacity: 0;
-        transform: translateX(-20px);
+    @media (max-width: 600px) {
+      .creators-container {
+        padding: 0 15px;
+        gap: 20px;
+        max-width: 380px;
       }
 
-      100% {
-        opacity: 1;
-        transform: translateX(0);
+      .image1-explanation {
+        flex-basis: calc(100% - 20px);
+        max-width: calc(100% - 20px);
+        padding: 20px;
       }
+
+      .image1-explanation img {
+        width: 140px;
+        height: 140px;
+      }
+
+      .image1-explanation .description h3 {
+        font-size: 1.3rem;
+      }
+
+      .image1-explanation .contact-info {
+        min-height: 70px;
+      }
+
+      .github-button {
+        padding: 10px 20px;
+      }
+    }
+
+    /* **สไตล์สำหรับ Navigation Bar (navbarContainer)** */
+    .navbarContainer {
+      width: 100%;
+      background-color: #24292e;
+      /* สีพื้นหลัง Navbar ของ GitHub */
+      padding: 0 40px;
+      /* เพิ่ม padding ซ้ายขวา */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 70px;
+      /* กำหนดความสูงขั้นต่ำ */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      /* เพิ่มเงาเล็กน้อย */
+    }
+
+    .logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.8rem;
+      /* ขนาดใหญ่ขึ้นสำหรับ Logo */
+      font-weight: 700;
+      /* หนาขึ้นสำหรับ Logo */
+      color: #ffffff;
+      /* สีขาวสำหรับ Logo */
+      text-decoration: none;
+    }
+
+    .home-links a {
+      font-family: 'Inter', sans-serif;
+      /* กำหนด font เป็น Inter */
+      font-size: 1.1rem;
+      /* ปรับขนาด font */
+      font-weight: 500;
+      /* กำหนดน้ำหนัก font */
+      color: #ffffff;
+      /* สีข้อความของลิงก์ใน nav เป็นสีขาว */
+      margin: 0 15px;
+      /* ระยะห่างระหว่างลิงก์ */
+      transition: color 0.3s ease;
+      /* เพิ่ม transition เมื่อ hover */
+    }
+
+    .home-links a:hover {
+      color: #e0e0e0;
+      /* สีเมื่อ hover (สีเทาอ่อนลง) */
+    }
+
+    /* **ปุ่ม Upload ที่ปรับปรุงล่าสุด (ใช้ชุดนี้แทนชุดเก่า)** */
+    /* **ปุ่ม Upload ที่ปรับปรุงล่าสุด (ใช้ชุดนี้แทนชุดเก่า)** */
+    .buttonFilled {
+      background-color: #007bff;
+      /* สีน้ำเงินสว่างขึ้นเล็กน้อย คล้ายในภาพ */
+      color: white;
+      padding: 10px 20px;
+      /* เพิ่ม padding เพื่อให้ปุ่มมีขนาดใหญ่ขึ้น */
+      text-decoration: none;
+      border-radius: 8px;
+      /* เพิ่มความโค้งมนของขอบปุ่ม */
+      font-weight: 600;
+      /* ทำให้ตัวอักษรหนาขึ้น */
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      /* เพิ่ม transition เพื่อความนุ่มนวล */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      /* เพิ่มเงาเล็กน้อย */
+      border: none;
+      /* ลบ border ออกเพื่อให้ดูเรียบง่ายขึ้น */
+      display: inline-block;
+      /* ทำให้เป็น inline-block เพื่อให้จัดวางง่ายขึ้น */
+      font-family: 'Inter', sans-serif;
+      /* **สำคัญมาก: เพิ่ม font-family ที่นี่** */
+      font-size: 1.1rem;
+      /* **สำคัญมาก: กำหนด font-size ที่นี่** */
+    }
+
+    .buttonFilled:hover {
+      background-color: #0056b3;
+      /* สีน้ำเงินเข้มขึ้นเมื่อ hover */
+      transform: translateY(-2px);
+      /* ยกปุ่มขึ้นเล็กน้อยเมื่อ hover */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      /* ทำให้เงาชัดขึ้นเมื่อ hover */
+    }
+
+    .buttonFilled:active {
+      background-color: #004085;
+      /* สีน้ำเงินเข้มมากเมื่อคลิก */
+      transform: translateY(0);
+      /* ปุ่มกลับลงมาเมื่อคลิก */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      /* เงาเล็กลงเมื่อคลิก */
+    }
+
+    /* .home-nav32 จะใช้สไตล์จาก .home-links a โดยตรงอยู่แล้ว */
+    /* ถ้าไม่มีสไตล์เฉพาะจริงๆ ก็ไม่จำเป็นต้องกำหนดแยก */
+    .home-nav32 {
+      /* ไม่จำเป็นต้องกำหนด font-size และ font-weight ซ้ำถ้า home-links a ครอบคลุมแล้ว */
+    }
+
+    /* .join-link ก็จะถูกสไตล์โดย .buttonFilled อยู่แล้ว เพราะถูกใช้เป็น class ร่วมกัน */
+    .join-link {
+      /* หากมีปัญหาการทับซ้อนของสไตล์ สามารถเพิ่ม !important ที่นี่ได้ */
     }
   </style>
 </head>
@@ -435,10 +404,10 @@
   <div class="home-container">
     <div class="home-header">
       <header data-thq="thq-navbar" class="navbarContainer">
-        <a class="logo" href="/home_web">Valolyze</a>
+        <a class="logo" href="index.html">Valolyze</a>
         <nav class="home-links">
-          <a href="/about">About </a>
-          <a class="home-nav32 bodySmall" href="/creator">Creator</a>
+          <a href="/about.html">About </a>
+          <a class="home-nav32 bodySmall" href="/Creator.html">Creator</a>
         </nav>
         <div class="home-container1">
           <div data-thq="thq-navbar-nav" class="home-desktop-menu">
@@ -454,43 +423,57 @@
             </svg>
           </div>
         </div>
-        <a class="buttonFilled" href="/webapp" class="join-link">Upload</a>
+        <a class="buttonFilled join-link" href="bank.html">Upload</a>
       </header>
     </div>
     <br>
     <br>
     <br>
-    <div class="image1-explanation">
-      <img src="./static/img/426378584_7182767191761660_801922842462979669_n.jpg" alt="Image 1">
-      <div class="description">
-        <h3>Thanapat Sopon</h3>
-        <p>thanapat.sop@kkumail.com</p>
-        <p>061-706-6959</p>
-        <p>Khonkaen University</p>
-        <a href="https://github.com/TungSoPon" class="github-button">Visit GitHub</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="creators-container">
+      <div class="image1-explanation">
+        <img src="./static/img/426378584_7182767191761660_801922842462979669_n.jpg" alt="Image 1">
+        <div class="description">
+          <h3>Thanapat Sopon</h3>
+          <div class="contact-info">
+            <p>thanapat.sop@kkumail.com</p>
+            <p>Khonkaen University</p>
+          </div>
+          <a href="https://github.com/TungSoPon" class="github-button">Visit GitHub</a>
+        </div>
+      </div>
+      <div class="image1-explanation">
+        <img src="./static/img/33c39180-8c3b-49d9-8ba0-d9aef8be958b.jpeg" alt="Image 2">
+        <div class="description">
+          <h3>Nattakon Puangkaew</h3>
+          <div class="contact-info">
+            <p>Nattakon.pu@kkumail.com</p>
+            <p>Khonkaen University</p>
+          </div>
+          <a href="https://github.com/Nattakonjpg" class="github-button">Visit GitHub</a>
+        </div>
+      </div>
+      <div class="image1-explanation">
+        <img src="static/img/426699661_862129615671126_8197927906954460593_n.jpg" alt="Image 3">
+        <div class="description">
+          <h3>Thanapong Intharah</h3>
+          <div class="contact-info">
+            <p>thanin@kku.ac.th</p>
+            <p>Associate professor in Computer Science at the Department of Statistics, Khon Kaen University (KKU)</p>
+          </div>
+          <a href="https://vi-lab-th.github.io/" class="github-button">Visit GitHub</a>
+        </div>
       </div>
     </div>
-    <div class="image1-explanation">
-      <img src="./static/img/33c39180-8c3b-49d9-8ba0-d9aef8be958b.jpg" alt="Image 2">
-      <div class="description">
-        <h3>Nattakon Puangkaew</h3>
-        <p>Nattakon.pu@kkumail.com</p>
-        <p>098-850-4121</p>
-        <p>Khonkaen University</p>
-        <a href="https://github.com/Nattakonjpg" class="github-button">Visit GitHub</a>
-      </div>
-    </div>
-    <div class="image1-explanation">
-      <img src="static/img/426699661_862129615671126_8197927906954460593_n.jpg" alt="Image 3">
-      <div class="description">
-        <h3>Thanapong Intharah</h3>
-        <p>thanin@kku.ac.th</p>
-        <p>-</p>
-        <p>Khonkaen University</p>
-        <a href="https://vi-lab-th.github.io/" class="github-button">Visit GitHub</a>
-      </div>
-    </div>
-    </header>
+  </div>
 </body>
 
 </html>
